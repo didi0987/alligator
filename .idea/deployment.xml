@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="alligator" deleteMissingItems="true">
+  <component name="PublishConfigData" serverName="alligator" deleteMissingItems="true" uploadOnCheckin="85f20885-58f4-48c6-adda-6be604ae7575">
     <serverData>
       <paths name="alligator">
         <serverdata>
@@ -10,6 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
+    <option name="myUploadOnCheckinName" value="alligator" />
   </component>
 </project>
