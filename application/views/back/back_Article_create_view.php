@@ -49,8 +49,8 @@
     <div id="editor"></div>
     <div style="padding: 5px 0; color: #ccc"></div>
     <div id="editor_input">
-    <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
-    <h1>欢迎使用 <b>wangEditor</b> 富文本编辑器</h1>
+    <p>开始编辑文章...</p>
+
     </div>
     <button id="submit" class="button">提交</button>
     <button id="preview_btn" class="button">预览</button>
@@ -95,6 +95,9 @@
     }, false)
 //Submit. Post to BackEnd
     document.getElementById('submit').addEventListener('click', function (e) {
+
+        var r=confirm("确认提交?");
+        if(r==true){
         var url='<?=base_url()?>index.php/back_Article/create';
         var content_title=$('#article_title').val();//get article title
         var content_html=editor.txt.html();//get content
@@ -107,6 +110,9 @@
             .success(function( data ) {
                 alert("文章提交成功")
             });
+        }
 
     }, false)
+
+
 </script>

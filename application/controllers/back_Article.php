@@ -40,6 +40,36 @@ class back_Article extends CI_Controller {
     }
         
     }
+    public function alist(){
+        $this->load->model('Article_model');
+        return $this->Article_model->list_Article_meta(0);
+
+    }
+    //TODO
+    public function get($article_id){
+
+    }
+    //TODO
+    public function edit_panel($article_id){
+
+    }
+    //TODO
+    public function article($article_id){
+
+
+    }
+    public function hide($article_id){
+
+
+    }
+    public function alist_panel(){
+
+
+        $data['metas']=$this->alist();
+        var_dump($data);
+        $this->load->view('back/back_Article_list_view',$data);
+
+    }
 
     public function uploadImg()
     {

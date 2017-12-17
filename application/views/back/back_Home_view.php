@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>Hello World 后台</title>
+    <title>Hello World 后台</title>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>res/css/back_layout.css" />
     <!--jQuery Library baidu CDN -->
@@ -11,12 +11,12 @@
 <body>
 <div id="container">
   <div id="header">
-    <h1>Hello World 后台</h1>
+      <a href="<?=base_url()?>index.php/back_Article" style="color:#a7a9aa;"><h1>Hello World 后台</h1></a>
   </div>
   <div id="wrapper">
     <div id="content">
 
-        <object name="panel" type="text/html" style="width:100%;min-height:1500px;" data=""></object>
+        <object name="panel" type="text/html" style="width:100%;min-height:1500px;" data="<?=base_url()?>index.php/back_Article/alist_panel"></object>
 
     </div>
   </div>
@@ -33,7 +33,7 @@
 
                           <li><a href="<?=base_url()?>/index.php/back_Article/create_panel" target="panel">新建文章</a>
                           </li>
-                          <li><a href="ui-panels.html">修改文章</a>
+                          <li><a href="<?=base_url()?>index.php/back_Article/alist_panel" target="panel">修改文章</a>
                           </li>
                           <!--
                           <li><a href="ui-buttons.html">Buttons</a>
