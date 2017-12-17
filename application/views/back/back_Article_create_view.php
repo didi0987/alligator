@@ -37,6 +37,7 @@
 
 <body>
 <div class="article_wrap">
+    <h1>新建文章</h1>
     <label>文章标题: </label>
     <div><input type="text" id="article_title" size="80" value="默认标题"></div>
     <div><label>发表于: </label><input type="text" id="article_date"></div>
@@ -105,11 +106,3 @@
 
     }, false)
 </script>
-<?php
-
-
-
-echo "this is back home";
-
-
-?>

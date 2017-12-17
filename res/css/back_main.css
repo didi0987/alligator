@@ -1,6 +1,6 @@
 body{
     font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif,"Microsoft YaHei";
-
+    height:100%;
 }
 label{
 
@@ -37,7 +37,6 @@ select {
 select {
     height: 45px;
     margin: 0;
-
     color: #fff;
     cursor: pointer;
     padding: 5px 20px;
@@ -68,7 +67,6 @@ select::-ms-expand {
     transition: .25s all ease;
 }
 .article_wrap{
-    width:80%;
     margin:0 auto;
 
 }
