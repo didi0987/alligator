@@ -70,10 +70,9 @@ class back_Article extends CI_Controller {
         $this->load->view('back/back_Article_list_view',$data);
 
     }
-
+    /*详细参见wangEditor文档上传图片*/
     public function uploadImg()
     {
-
         try{
             $imgInfo = $_FILES['file'];
             // 图片名称
@@ -86,18 +85,14 @@ class back_Article extends CI_Controller {
             $temp = explode(".",$oldname);
             // 用时间戳 + 文件后缀 重命名文件。
             $newname = time().".".$temp[count($temp)-1];
-
             $move_dir='./upload/img/article/'.date('Y-m-d');
             if(!file_exists($move_dir)){
                 mkdir($move_dir,0777);
             }
             // 在服务上移动图片到指定目录。
-
-
             $server_url=$move_dir.'/'.$newname;
             move_uploaded_file($tmp_name,$server_url);
             // 返回图片路径，类似ajax的响应流程。
-
             $data=[base_url().'upload/img/article/'.date('Y-m-d').'/'.$newname];
             //var_dump($data);
             $errorno=0;
