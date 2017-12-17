@@ -91,9 +91,10 @@
 //Submit. Post to BackEnd
     document.getElementById('submit').addEventListener('click', function (e) {
         var url='<?=base_url()?>index.php/back_Article/create';
-        var content_title=$('#article_title').val();
-        var content_html=editor.txt.html();
-        var content_length=editor.txt.text().length;
+        var content_title=$('#article_title').val();//get article title
+        var content_html=editor.txt.html();//get content
+        var content_length=editor.txt.text().length;//get length of the content
+
         var content_displayDate=$('#article_date').val();
         var article_category=$('#article_category').val();
 

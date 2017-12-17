@@ -3,7 +3,7 @@
 <head>
 <title>Free Css Layout 10</title>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" type="text/css" href="styles.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>res/css/back_layout.css" />
 </head>
 <body>
 <div id="container">
