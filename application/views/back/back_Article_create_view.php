@@ -66,6 +66,10 @@
     var E = window.wangEditor
     // var editor = new E('#editor')
     var editor = new E( document.getElementById('editor'), document.getElementById('editor_input'))
+    editor.customConfig.debug = location.href.indexOf('wangeditor_debug_mode=1') > 0
+    editor.customConfig.uploadImgServer = '<?=base_url()?>index.php/back_Article/uploadImg';
+    editor.customConfig.uploadFileName ='file';
+    //  editor.customConfig.uploadImgShowBase64 = true
     editor.create()
 
     var a = document.getElementById("article_date");
@@ -100,8 +104,8 @@
         var article_category=$('#article_category').val();
 
         $.post( url, { content_title: content_title ,content_html: content_html, content_displayDate:content_displayDate,article_category:article_category,content_length:content_length })
-            .done(function( data ) {
-                console.log( "Data Loaded: " + data );
+            .success(function( data ) {
+                alert("文章提交成功")
             });
 
     }, false)
