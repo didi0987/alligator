@@ -1,92 +1,38 @@
-<!DOCTYPE html>
-<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Hello World Backend</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- CSS
-  ================================================== -->
-
-    <link rel="stylesheet" href="<?php echo base_url();?>res/css/back_main.css">
-    <!--  <link rel="stylesheet" href="res/css/main.css">-->
-
-    <!-- script
-    ================================================== -->
-    <script type="text/javascript" src="<?php echo base_url();?>res/js/wangEditor.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>res/js/back_main.js"></script>
-    <!--jQuery Library baidu CDN -->
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-
-    <!-- favicons
-     ================================================== -->
-    <link rel="shortcut icon" href="favicon.png" >
-
+<title>Free Css Layout 10</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
-
 <body>
-<div class="article_wrap">
-    <label>文章标题: </label>
-    <div><input type="text" id="article_title" size="80"></div>
-    <div><label>发表于: </label><input type="text" id="article_date"></div>
-    <div><label>标签: </label><input type="text" id="article_tag"></div>
-    <div style="padding: 15px 0; color: #ccc"></div>
-    <div id="editor"></div>
-    <div style="padding: 5px 0; color: #ccc"></div>
-    <div id="editor_input">
-    <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
-    <h1>欢迎使用 <b>wangEditor</b> 富文本编辑器</h1>
+<div id="container">
+  <div id="header">
+    <h1><a href="http://www.free-css.com/free-css-layouts.php">Free CSS Layouts</a></h1>
+  </div>
+  <div id="wrapper">
+    <div id="content">
+      <p><strong>Content here.</strong></p>
+      <p>Sapibulumnibh phasellus nulla egestibulum enim pretium elit tincidunt estiquam ultrisque donectetur. Sedcondimentumsan odio hendrerit proin vitae dignis nibh ac justo id congue. Amesintesque vel curabitae volutpat donec alique nasceleifendimentesque montesque rhoncus quis eros. Vestnunc nonummy</p>
+      <p>Montegeraliquam sed pede in cursus praesenec vestas rhoncus wisi at wisi. Condisseloborttis enim et ipsum mauristie id felit adipiscipit ac auctortorttitor sempor. Vitantesqueat sempus non sed et mus sit vivamus purus netus hendiment. Pretiuma diam et id tempus dolor por wisi sed volutpat facilisi.</p>
+      <p>Wisiet sus adipit phasellentum elit condissim consecteturpiscing sapien vivamus et congue. Utvel tris quismod cursus liberos elit nisse curabitur tur parturpis tellenterdum. Semperligula curabitae tellentesque nulla trices vestas ristibulum id justo auctor facinia. Natisdonec consequat nibh pellus.</p>
+      <p>Vestibusodio euisque id elerisus lacus tincidunt sit malesuada lacus pellus parturpiscing. Pellenterdumat maecenatoque cras a magna nibh et quis diam ames et. Laoremvolutpat ac dolor eget eget temper lacus vestibus velit lacus venean. Magnaipsum tellus morbi leo aliquat nulla convallis pellentesque.</p>
     </div>
-    <button id="submit" class="button">提交</button>
-    <button id="preview_btn" class="button">预览</button>
-</div>
-
-<div id="preview" class="preview">
-    <button id="preview_close" class="button">关闭</button>
-   <div id="preview_wrap"></div>
+  </div>
+  <div id="navigation">
+    <p><strong>Navigation Here</strong></p>
+    <ul>
+      <li><a href="http://www.free-css.com/">Free CSS Templates</a></li>
+      <li><a href="http://www.free-css.com/free-css-layouts.php">Free CSS Layouts</a></li>
+    </ul>
+  </div>
+  <div id="extra">
+    <p><strong>More stuff here.</strong></p>
+    <p>sit malesuada lacus pellus parturpiscing. Pellenterdumat maecenatoque cras a magna nibh et quis diam ames et. Laoremvolutpat ac dolor eget eget temper lacus vestibus velit lacus venean. Magnaipsum tellus morbi leo aliquat nulla convallis pellentesque.</p>
+  </div>
+  <div id="footer">
+    <p>Footer</p>
+  </div>
 </div>
 </body>
 </html>
-<script type="text/javascript">
-    var E = window.wangEditor
-    // var editor = new E('#editor')
-    var editor = new E( document.getElementById('editor'), document.getElementById('editor_input'))
-    editor.create()
-
-    var a = document.getElementById("article_date");
-    var d = new Date();
-    $('#article_date').val(d.getFullYear()+"年"+d.getMonth()+'月'+d.getDate()+"日");
-
-    document.getElementById('preview_btn').addEventListener('click', function () {
-        // 读取 html
-        var data = editor.txt.html();
-        $("#preview").css('display','block')
-        $("#preview_wrap").html('');
-        $("#preview_wrap").append(data);
-
-    }, false)
-
-    document.getElementById('preview_close').addEventListener('click', function (e) {
-
-        $("#preview").css('display','none')
-
-    }, false)
-</script>
-<?php
-
-
-
-echo "this is back home";
-
-
-?>
