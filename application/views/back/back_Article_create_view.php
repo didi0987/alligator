@@ -41,10 +41,20 @@
     <label>文章标题: </label>
     <div><input type="text" id="article_title" size="80" value="默认标题"></div>
     <div><label>发表于: </label><input type="text" id="article_date"></div>
-    <div><label>类型: </label><select id="article_category">
-            <option value="1">活动</option>
-            <option value="2">文章</option>
+    <div><label>一级分类: </label><select id="category_l1">
+            <option value="1">话题</option>
+            <option value="2">项目</option>
         </select></div>
+
+    <div><label>二级分类: </label><select id="category_l2">
+            <option value="4">项目管理</option>
+            <option value="5">市场营销</option>
+        </select></div>
+
+    <div><label>项目分类: </label>
+        <input type="checkbox" name="category_l3"   value="13">上海
+        <input type="checkbox" name="category_l3" value="14">广州
+    </div>
     <div style="padding: 15px 0; color: #ccc"></div>
     <div id="editor"></div>
     <div style="padding: 5px 0; color: #ccc"></div>
@@ -67,9 +77,8 @@
     // var editor = new E('#editor')
     var editor = new E( document.getElementById('editor'), document.getElementById('editor_input'))
     editor.customConfig.debug = location.href.indexOf('wangeditor_debug_mode=1') > 0
-    editor.customConfig.uploadImgServer = '<?=base_url()?>index.php/back_Article/uploadImg';
+    editor.customConfig.uploadImgServer = '<?=base_url()?>index.php/back_Home/uploadImg';
     editor.customConfig.uploadFileName ='file';
-    //  editor.customConfig.uploadImgShowBase64 = true
     editor.create()
 
     var a = document.getElementById("article_date");
@@ -98,21 +107,26 @@
 
         var r=confirm("确认提交?");
         if(r==true){
-        var url='<?=base_url()?>index.php/back_Article/create';
+        var url='<?=base_url()?>index.php/back_Home/create';
         var content_title=$('#article_title').val();//get article title
         var content_html=editor.txt.html();//get content
         var content_length=editor.txt.text().length;//get length of the content
-
         var content_displayDate=$('#article_date').val();
-        var article_category=$('#article_category').val();
-
-        $.post( url, { content_title: content_title ,content_html: content_html, content_displayDate:content_displayDate,article_category:article_category,content_length:content_length })
+        var category_l1=$('#category_l1').val();
+        var category_l2=$('#category_l2').val();
+        $.post( url, { content_title: content_title ,content_html: content_html, content_displayDate:content_displayDate,article_category_l1:category_l1,article_category_l2:category_l2,content_length:content_length })
             .success(function( data ) {
-                alert("文章提交成功")
+                if(data=='0'){
+                    alert("提交成功!");
+                }else{
+                    alert("提交失败!");
+                }
             });
         }
 
     }, false)
-
+    $("input:checkbox[name=category_l3]:checked").each(function () {
+        console.log(" Value: " + $(this).val());
+    });
 
 </script>

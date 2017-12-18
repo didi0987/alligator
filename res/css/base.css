@@ -6,14 +6,15 @@
 /*
 /* =================================================================== */
 
-/* 
-/* Reset - normalize.css v3.0.1 | MIT License | git.io/normalize 
+/*
+/* Reset - normalize.css v3.0.1 | MIT License | git.io/normalize
 /* =================================================================== */
 
 html {
-	font-family: sans-serif;
+	font-family: sans-serif,"Hiragino Sans GB",Helvetica,Arial,"Microsoft Yahei";
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
+
 }
 
 body {
@@ -230,16 +231,16 @@ th {
 }
 
 /*
-/* Basic Setup Styles - Top Elements 
+/* Basic Setup Styles - Top Elements
 /* =================================================================== */
 
 /* NOTE
-html is set to 62.5% so that if you use REMS, all the measurements 
+html is set to 62.5% so that if you use REMS, all the measurements
 are based on 10px sizing. So basically 1.5rem = 15px  */
 html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-size: 62.5%;
+	/*font-size: 62.5%;*/
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -264,7 +265,7 @@ body {
 
 
 /*
-/* Typography 
+/* Typography
 ====================================================================== */
 
 div,
@@ -383,8 +384,8 @@ p a:visited {
 	line-height: inherit;
 }
 
-/* 
-/* Media 
+/*
+/* Media
 /* =================================================================== */
 
 img,
@@ -404,7 +405,7 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
-/* 
+/*
 /* Grid
 ===================================================================== */
 
@@ -663,7 +664,7 @@ img {
 
 }
 
-/* 
+/*
 /* block grids
 ===================================================================== */
 .bgrid-sixth .bgrid {
@@ -686,7 +687,7 @@ img {
 	padding: 0;
 }
 
-/* Clearing for block grid columns. Allows columns with 
+/* Clearing for block grid columns. Allows columns with
 different heights to align properly.
 --------------------------------------------------------------------- */
 .bgrid-sixth .bgrid:nth-child(6n+1),
@@ -822,7 +823,7 @@ different heights to align properly.
 
 }
 
-/* 
+/*
 /* MISC
 ===================================================================== */
 
@@ -838,7 +839,7 @@ different heights to align properly.
 	clear: both;
 }
 
-/* Misc Helper Styles 
+/* Misc Helper Styles
 --------------------------------------------------------------------- */
 .hide {
 	display: none;
@@ -894,4 +895,3 @@ different heights to align properly.
 	margin-right: auto;
 	text-align: center;
 }
-

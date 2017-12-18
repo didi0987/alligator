@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<h1>文章列表</h1>
 <table class="responstable">
   
   <tr>
@@ -41,7 +42,13 @@
             </td>
             <td>
                 <a href=""><i class="fa fa-pencil" aria-hidden="true"></i> 修改 </a>
-                <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i> 隐藏 </a>
+                <?php if($meta['article_display']==1){?>
+                    <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i> 隐藏 </a>
+                <?} else {?>
+                <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i> 显示 </a>
+                <?}?>
+
+
             </td>
 
         </tr>

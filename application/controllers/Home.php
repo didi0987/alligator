@@ -4,22 +4,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 
 	/**
-	 * Index Page for this controller.
+	 * This is the front end main controller
 	 *
 	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 * 		http://180.76./index.php/Home
+
 	 */
+
 	public function index()
 	{
-		$this->load->view('Home_view');
+        $this->load->view('Home_view');
+
 	}
+
+	public  function article($article_id)
+    {
+        $data=array('article'=>"文章加载错误!");
+        $this->load->model('Article_model');
+        if(!$article_id){
+            show_404();
+        }else
+        {
+            $result=$this->Article_model->get_Article_Meta_Content_by_id($article_id);
+            $data['article']=$result;
+        }
+
+        //subview data only need to be passed to layout and the subview is able to get. Does not require second pass to the subview
+        $this->load->view('layout/Layout_view',$data);
+
+    }
 }

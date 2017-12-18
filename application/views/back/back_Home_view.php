@@ -16,7 +16,7 @@
   <div id="wrapper">
     <div id="content">
 
-        <object name="panel" type="text/html" style="width:100%;min-height:1500px;" data="<?=base_url()?>index.php/back_Article/alist_panel"></object>
+        <object name="panel" type="text/html" style="width:100%;min-height:1500px;" data="<?=base_url()?>index.php/back_Home/alist_panel"></object>
 
     </div>
   </div>
@@ -31,9 +31,9 @@
                       <a href="javascript:void(0);"><i class="fa fa-text-height"></i><span>文章管理</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                       <ul>
 
-                          <li><a href="<?=base_url()?>/index.php/back_Article/create_panel" target="panel">新建文章</a>
+                          <li><a href="<?=base_url()?>/index.php/back_Home/create_panel" target="panel">新建文章</a>
                           </li>
-                          <li><a href="<?=base_url()?>index.php/back_Article/alist_panel" target="panel">修改文章</a>
+                          <li><a href="<?=base_url()?>index.php/back_Home/alist_panel" target="panel">修改文章</a>
                           </li>
                           <!--
                           <li><a href="ui-buttons.html">Buttons</a>
