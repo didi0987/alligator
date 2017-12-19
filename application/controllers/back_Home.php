@@ -12,7 +12,9 @@ class back_Home extends CI_Controller {
     {
         $this->load->view('back/back_Article_create_view');
     }
-
+/*
+ * Insert Content->Insert Meta using same Content Ref,get Article_ID->Insert Category
+ * */
     public function create()
     {
     $this->load->model('Article_model');
@@ -41,23 +43,33 @@ class back_Home extends CI_Controller {
 
             echo "1";
         }
-
-
-
-        
     }
     public function alist(){
         $this->load->model('Article_model');
         return $this->Article_model->list_Article_meta(0);
 
     }
-    //TODO
+
     public function get($article_id){
 
-    }
-    //TODO
-    public function edit_panel($article_id){
+        $this->load->model('Article_model');
+        $res=$this->Article_model->get_Article_Meta_Content_by_id($article_id);
+        /* convert JSON so that Chinese characters can be displayed*/
+        foreach ( $res[0] as $key => $value ) {
+            if($key=="content_html"){
 
+                $value=htmlspecialchars($value);
+            }
+            $res[0][$key] = urlencode ( $value );
+
+        }
+        echo urldecode ( json_encode($res[0]));
+
+    }
+
+    public function edit_panel($article_id){
+        $data=array('article_id'=>$article_id);
+        $this->load->view('back/back_Article_edit_view',$data);
     }
 
     public function hide($article_id){
@@ -70,6 +82,24 @@ class back_Home extends CI_Controller {
         $data['metas']=$this->alist();
         var_dump($data);
         $this->load->view('back/back_Article_list_view',$data);
+
+    }
+
+    public function update($article_id){
+        $this->load->model('Article_model');
+        $lastUpdateTime= date("H:i:s");
+        $lastUpdateDate= date("Y-m-d");
+        $article_length=$this->input->post('article_length');
+        $content_title=$this->input->post('content_title');
+        $content_html=$this->input->post('content_html');
+        $content_displayDate=$this->input->post('content_displayDate');
+        try{
+            $this->Article_model->update_Article_Meta_by_id($article_id,$lastUpdateDate,$lastUpdateTime,$article_length);
+            $this->Article_model->update_Article_Content_by_id($article_id,$content_title,$content_html,$content_displayDate);
+            echo '0';
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
 
     }
     /*详细参见wangEditor文档上传图片*/

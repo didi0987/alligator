@@ -1,15 +1,6 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description of pla_info
- *
- * @author chenxiao
- */
 class Article_model extends CI_Model
 {
     function __construct() {
@@ -18,14 +9,13 @@ class Article_model extends CI_Model
     }
     function insert_Article_meta($createDate,$createTime,$lastUpdateDate,$lastUpdateTime,$article_author,$article_length,$content_ref){
         $data = array(
-           // 'article_article_id' => $article_id,
+
             'article_createDate' => $createDate,
             'article_createTime' => $createTime ,
             'article_lastUpdateDate' => $lastUpdateDate,
             'article_lastUpdateTime' => $lastUpdateTime,
             'article_author' =>$article_author,
             'article_length' =>$article_length,
-           // 'article_category' => $article_category,
             'article_content_ref' => $content_ref
 
         );
@@ -69,12 +59,21 @@ class Article_model extends CI_Model
 
     function get_Article_Meta_Content_by_id($article_id){
 
-        $query="SELECT content_title,content_html,content_displayDate,category_name FROM Article_meta ,Article_content,Article_category where Article_meta.article_content_ref=Article_content.content_ref AND Article_meta.article_category=Article_category.category_id  AND article_id=".$article_id;
+        $query="SELECT content_title,content_html,content_displayDate FROM Article_meta a,Article_content where a.article_content_ref=Article_content.content_ref AND a.article_id=".$article_id;
         $res=$this->db->query($query)->result_array();
         if(!$res){
             show_404();
         }
         return $res;
+    }
+    function update_Article_Meta_by_id($article_id,$lastUpdateDate,$lastUpdateTime,$article_length){
+
+        $sql = "Update Article_meta Set article_lastUpdateDate=?, article_lastUpdateTime=?,article_length=? where article_id=?";
+        $this->db->query($sql, array($lastUpdateDate, $lastUpdateTime, $article_length,$article_id));
+    }
+    function update_Article_Content_by_id($article_id,$content_title,$content_html,$content_displayDate){
+        $sql = "Update Article_content c inner join Article_meta a on c.content_ref=a.article_content_ref Set content_title=?, content_html=?,content_displayDate=? where article_id=?";
+        $this->db->query($sql, array($content_title, $content_html, $content_displayDate,$article_id));
     }
 
 }

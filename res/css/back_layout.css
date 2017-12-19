@@ -24,10 +24,11 @@ div#footer{clear:both;width:100%}
     margin-left: -240px;
 }
 .sidebar {
-    width: 240px;
+    max-width: 200px;
     height: 100%;
-    background: #293949;
+    /* width: 240px; */
     position: absolute;
+    background-color: #2B3A48;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;

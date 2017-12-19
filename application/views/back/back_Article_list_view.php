@@ -41,7 +41,7 @@
                 <?=$meta['article_display']; ?></p>
             </td>
             <td>
-                <a href=""><i class="fa fa-pencil" aria-hidden="true"></i> 修改 </a>
+                <a href="<?=base_url()?>index.php/back_Home/edit_panel/<?=$meta['article_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i> 修改 </a>
                 <?php if($meta['article_display']==1){?>
                     <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i> 隐藏 </a>
                 <?} else {?>

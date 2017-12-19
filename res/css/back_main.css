@@ -88,8 +88,9 @@ select::-ms-expand {
 }
 #editor ,#editor_input{
     border: 1px solid #a2a2a2;
+    /* padding: 15px; */
 }
-#editor_input{height:800px;width: 82%;}
+#editor_input{height: 800px;/* height: 100%; */width: 82%;padding: 10px 10px;overflow-y: scroll;}
 .preview{
     position: fixed;
     left:0;
