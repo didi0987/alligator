@@ -28,11 +28,11 @@
                       <a href="javascript:void(0)"><i class="fa fa-tags"></i><span>分类管理</span></a>
                       <ul>
 
-                          <li><a href="<?=base_url()?>/index.php/back_Home/create_panel" target="panel">话题</a>
+                          <li><a href="<?=base_url()?>index.php/back_Category/category1/1" target="panel">话题</a>
                           </li>
-                          <li><a href="<?=base_url()?>index.php/back_Home/alist_panel" target="panel">项目</a>
+                          <li><a href="<?=base_url()?>index.php/back_Category/category1/2" target="panel">项目</a>
                           </li>
-                          <li><a href="">加入</a>
+                          <li><a href="<?=base_url()?>index.php/back_Category/category1/3" target="panel">加入</a>
                           </li>
                           <!--
                           <li><a href="ui-slider-progress.html">Sliders &amp; Progress</a>

@@ -16,9 +16,20 @@ label{
 input {
     height: 25px;
     margin: 4px;
-    font-size: 12px;
+    font-size: 15px;
     padding:10px;
   
+}
+button{
+     height: 45px;
+     width:85px;
+     padding:10px;
+     color:#fff;
+     background:#da1b59;
+     border-radius:5px;
+     -webkit-appearance: button;
+     -moz-appearance:    button;
+     appearance:         button;
 }
 input[type=checkbox]{
     width:15px;

@@ -17,7 +17,7 @@
 <table class="responstable">
   
   <tr>
-    <th>文章ID</th>
+    <th>文章编号</th>
     <th>文章标题</th>
     <th>发布日期</th>
       <th>上次修改日期</th>
