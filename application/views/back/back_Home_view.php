@@ -24,11 +24,33 @@
       <aside class="sidebar">
           <div id="leftside-navigation" class="nano">
               <ul class="nano-content">
-                  <li>
-                      <a href="index.html"><i class="fa fa-tags"></i><span>分类管理</span></a>
+                  <li class="sub-menu">
+                      <a href="javascript:void(0)"><i class="fa fa-tags"></i><span>分类管理</span></a>
+                      <ul>
+
+                          <li><a href="<?=base_url()?>/index.php/back_Home/create_panel" target="panel">话题</a>
+                          </li>
+                          <li><a href="<?=base_url()?>index.php/back_Home/alist_panel" target="panel">项目</a>
+                          </li>
+                          <li><a href="">加入</a>
+                          </li>
+                          <!--
+                          <li><a href="ui-slider-progress.html">Sliders &amp; Progress</a>
+                          </li>
+                          <li><a href="ui-modals-popups.html">Modals &amp; Popups</a>
+                          </li>
+                          <li><a href="ui-icons.html">Icons</a>
+                          </li>
+                          <li><a href="ui-grid.html">Grid</a>
+                          </li>
+                          <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a>
+                          </li>
+                          <li><a href="ui-nestable-list.html">Nestable Lists</a>
+                          </li>-->
+                      </ul>
                   </li>
                   <li class="sub-menu">
-                      <a href="javascript:void(0);"><i class="fa fa-text-height"></i><span>文章管理</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                      <a href="<?=base_url()?>index.php/back_Home/alist_panel" target="panel"><i class="fa fa-text-height"></i><span>文章管理</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                       <ul>
 
                           <li><a href="<?=base_url()?>/index.php/back_Home/create_panel" target="panel">新建文章</a>

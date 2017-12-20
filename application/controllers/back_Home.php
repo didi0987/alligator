@@ -72,7 +72,22 @@ class back_Home extends CI_Controller {
         $this->load->view('back/back_Article_edit_view',$data);
     }
 
-    public function hide($article_id){
+    public function switch_display($article_id){
+
+        $this->load->model('Article_model');
+        $res=$this->Article_model->get_Article_displayStatus($article_id);
+        $currentDisplay=$res[0]['article_display'];
+        switch ($currentDisplay){
+
+            case "1":
+                $this->Article_model->update_Article_displayStatus($article_id,"0");
+                break;
+            case "0":
+                $this->Article_model->update_Article_displayStatus($article_id,"1");
+                break;
+        }
+
+
 
 
     }
@@ -80,7 +95,6 @@ class back_Home extends CI_Controller {
 
 
         $data['metas']=$this->alist();
-        var_dump($data);
         $this->load->view('back/back_Article_list_view',$data);
 
     }

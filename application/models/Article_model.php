@@ -68,12 +68,22 @@ class Article_model extends CI_Model
     }
     function update_Article_Meta_by_id($article_id,$lastUpdateDate,$lastUpdateTime,$article_length){
 
-        $sql = "Update Article_meta Set article_lastUpdateDate=?, article_lastUpdateTime=?,article_length=? where article_id=?";
-        $this->db->query($sql, array($lastUpdateDate, $lastUpdateTime, $article_length,$article_id));
+        $query = "Update Article_meta Set article_lastUpdateDate=?, article_lastUpdateTime=?,article_length=? where article_id=?";
+        $this->db->query($query, array($lastUpdateDate, $lastUpdateTime, $article_length,$article_id));
     }
     function update_Article_Content_by_id($article_id,$content_title,$content_html,$content_displayDate){
         $sql = "Update Article_content c inner join Article_meta a on c.content_ref=a.article_content_ref Set content_title=?, content_html=?,content_displayDate=? where article_id=?";
         $this->db->query($sql, array($content_title, $content_html, $content_displayDate,$article_id));
+    }
+    function update_Article_displayStatus($article_id,$status){
+        $query="Update Article_meta Set article_display=? where article_id=?";
+        $this->db->query($query,array($status,$article_id));
+    }
+    function get_Article_displayStatus($article_id){
+        $query="Select article_display from  Article_meta where article_id=?";
+        return $this->db->query($query,array($article_id))->result_array();
+
+
     }
 
 }

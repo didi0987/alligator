@@ -116,14 +116,14 @@
         var category_l1=$('#category_l1').val();
         var category_l2=$('#category_l2').val();
         $.post( url, { content_title: content_title ,content_html: content_html, content_displayDate:content_displayDate,article_category_l1:category_l1,article_category_l2:category_l2,content_length:content_length })
-            .success(function( data ) {
-                if(data=='0'){
-                    alert("提交成功!");
-                }else{
-                    alert("提交失败!");
-                }
-            });
-        }
+        .success(function( data ) {
+            if(data=='0'){
+                alert("提交成功!");
+            }else{
+                alert("提交失败!");
+            }
+        });
+    }
 
     }, false)
 

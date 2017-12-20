@@ -70,6 +70,7 @@ If you like this solution, you might also want to check out the 1.0 version:
   text-align: left;
   margin: .5em 1em;
 }
+span{color: #fa2342;padding: 0px 10px;}
 @media (min-width: 480px) {
   .responstable th, .responstable td {
     display: table-cell;
