@@ -52,7 +52,7 @@ class Article_model extends CI_Model
 
     function list_Article_meta($pageNumber){
 
-        $query="SELECT article_id,content_title,article_createDate,article_lastUpdateDate,article_display FROM Article_meta join Article_content where Article_meta.article_content_ref=Article_content.content_ref order by article_lastUpdateDate DESC ";
+        $query="SELECT article_id,content_title,article_createDate,article_lastUpdateDate,article_display FROM Article_meta join Article_content where Article_meta.article_content_ref=Article_content.content_ref order by article_lastUpdateDate DESC,article_lastUpdateTime DESC";
         return $this->db->query($query)->result_array();
 
     }

@@ -144,3 +144,9 @@ select::-ms-expand {
 .preview button{
     border:none;
 }
+#add_section input{
+    float:left;
+}
+#add_section button{
+    margin-top:6px;
+}
