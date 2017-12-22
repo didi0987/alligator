@@ -9,10 +9,7 @@ body{
 body::-webkit-scrollbar { 
     display: none;  // Safari and Chrome
 }
-label{
-
-    color:#a2a2a2;
-}
+label{color:#a2a2a2;float: left;padding: 17px 0px;}
 input {
     height: 25px;
     margin: 4px;
@@ -34,6 +31,7 @@ button{
 }
 input[type=checkbox]{
     width:15px;
+    margin: 0px 10px;
 }
 select {
     -webkit-appearance: none;
@@ -131,22 +129,52 @@ select::-ms-expand {
     display: none;
 }
 .preview #preview_wrap{
-    width: 80%;
+    width: 79%;
     margin:20px auto 150px auto;
     background-color: white;
     padding: 15px 10px;
     max-height: 1000px;
     overflow: scroll;
+    border-box: initial;
 }
 .preview .w-e-text{
-     overflow-y:unset
+     overflow-y:unset;
 }
 .preview button{
     border:none;
 }
-#add_section input{
+    #add_section input{
     float:left;
 }
 #add_section button{
     margin-top:6px;
+}
+.project_wrap{
+    padding: 0px 0px;
+    min-height: 100px;
+    /* margin: 10px 0px; */
+    margin-bottom: 50px;
+}
+
+.project_wrap .project_subsection{
+    /* float: left; */
+    border: 2px solid #2A3E4F;
+    border-radius: 15px;
+    float: left;
+    padding: 10px 15px;
+    margin: 2px 5px;
+}
+.project_wrap .project_subsection .title{
+    margin:0px auto;
+    width: 100%;
+    padding: 3px;
+    font-weight:  bold;
+    font-color: #2A3E4F;
+    color: #2A3E4F;
+    text-align:  center;
+}
+.project_wrap #project_section{
+    float:left;
+    margin-bottom:16px;
+    width:  100%;
 }

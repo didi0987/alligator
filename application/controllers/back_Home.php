@@ -25,6 +25,7 @@ class back_Home extends CI_Controller {
     $content_displayDate=$this->input->post("content_displayDate");
     $article_category_l1=$this->input->post("article_category_l1");
     $article_category_l2=$this->input->post("article_category_l2");
+    $article_category_l3=$this->input->post("article_category_l3_array");
     $article_author="Hello World";
     $article_length=$this->input->post("content_length");
     //ref is used to link content and article.
@@ -36,12 +37,23 @@ class back_Home extends CI_Controller {
         /*When create an article, lastUpdate Date/Time is same as create Date/Time */
         $article_id=$this->Article_model->insert_Article_meta($createDate,$createTime,$createDate,$createTime,$article_author,$article_length,$content_ref);
         if($article_id){
-            $this->Article_model->insert_Article_category($article_id,$article_category_l1,$article_category_l2,'999');
-            echo "0";
+            //there is Lv 3 categories
+            if(sizeof($article_category_l3)>0){
+
+                foreach ($article_category_l3 as $key=>$value){
+                    $this->Article_model->insert_Article_category($article_id,$article_category_l1,'',$value);
+                }
+                echo $article_id;
+            }
+            else{
+                $this->Article_model->insert_Article_category($article_id,$article_category_l1,$article_category_l2,'');
+                echo $article_id;
+            }
+
         }
         else{
 
-            echo "1";
+            echo "0000";
         }
     }
     public function alist(){
@@ -68,7 +80,11 @@ class back_Home extends CI_Controller {
     }
 
     public function edit_panel($article_id){
-        $data=array('article_id'=>$article_id);
+
+
+        $l3=$this->get_l3($article_id);
+        $l2=$this->get_l2($article_id);
+        $data=array('article_id'=>$article_id,'l3'=>$l3,'l2'=>$l2);
         $this->load->view('back/back_Article_edit_view',$data);
     }
 
@@ -92,8 +108,6 @@ class back_Home extends CI_Controller {
 
     }
     public function alist_panel(){
-
-
         $data['metas']=$this->alist();
         $this->load->view('back/back_Article_list_view',$data);
 
@@ -107,9 +121,25 @@ class back_Home extends CI_Controller {
         $content_title=$this->input->post('content_title');
         $content_html=$this->input->post('content_html');
         $content_displayDate=$this->input->post('content_displayDate');
+        $article_category_l1=$this->input->post("article_category_l1");
+        $article_category_l2=$this->input->post("article_category_l2");
+        $article_category_l3=$this->input->post("article_category_l3_array");
         try{
+            //first remove the categories
+            $this->remove_article_cates($article_id);
             $this->Article_model->update_Article_Meta_by_id($article_id,$lastUpdateDate,$lastUpdateTime,$article_length);
             $this->Article_model->update_Article_Content_by_id($article_id,$content_title,$content_html,$content_displayDate);
+            if(sizeof($article_category_l3)>0){
+
+                foreach ($article_category_l3 as $key=>$value){
+                    $this->Article_model->insert_Article_category($article_id,$article_category_l1,'',$value);
+                }
+
+            }
+            else{
+                $this->Article_model->insert_Article_category($article_id,$article_category_l1,$article_category_l2,'');
+
+            }
             echo '0';
         }catch(Exception $e){
             echo $e->getMessage();
@@ -153,5 +183,35 @@ class back_Home extends CI_Controller {
 
 
     }
-    
+
+    public function  get_l3($aid){
+        $this->load->model('Category_model');
+        $res=$this->Category_model->get_Cates_by_id($aid);
+        if($res){
+            $ret=array();
+            foreach($res as $key=>$value){
+                array_push($ret,$value['article_category_l3']);
+            }
+            return json_encode($ret);
+
+        }else{
+            return "[]";
+        }
+
+    }
+    public function  get_l2($aid){
+        $this->load->model('Category_model');
+        $res=$this->Category_model->get_Cates_by_id($aid);
+        if($res){
+            return $res[0]['article_category_l2'];
+        }
+        else{
+            return "4";
+        }
+
+    }
+    public function remove_article_cates($aid){
+        $this->load->model('Category_model');
+        $res=$this->Category_model->delete_Article_Cates_by_id($aid);
+    }
 }

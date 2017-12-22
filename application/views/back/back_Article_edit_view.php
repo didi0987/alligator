@@ -31,29 +31,37 @@
 
     <!-- favicons
      ================================================== -->
-    <link rel="shortcut icon" href="favicon.png" >
+
 
 </head>
 
 <body>
+
 <div class="article_wrap">
     <h1>修改文章</h1>
     <label>文章标题: </label>
     <div><input type="text" id="article_title" size="80" value=""></div>
     <div><label>发表于: </label><input type="text" id="article_date"></div>
-    <div><label>一级分类: </label><select id="category_l1">
+    <div>
+        <label>一级分类: </label>
+        <select id="category_l1">
             <option value="1">话题</option>
             <option value="2">项目</option>
-        </select></div>
+        </select>
+    </div>
 
-    <div><label>二级分类: </label><select id="category_l2">
-            <option value="4">项目管理</option>
-            <option value="5">市场营销</option>
-        </select></div>
+    <div id="category_l2_wrap">
+        <label>二级分类: </label>
+        <select id="category_l2">
 
-    <div><label>项目分类: </label>
-        <input type="checkbox" name="category_l3"   value="13">上海
-        <input type="checkbox" name="category_l3" value="14">广州
+        </select>
+    </div>
+
+    <div class="project_wrap">
+        <label>项目分类: </label>
+        <div id="project_section">
+
+        </div>
     </div>
     <div style="padding: 15px 0; color: #ccc"></div>
     <div id="editor"></div>
@@ -73,6 +81,7 @@
 </body>
 </html>
 <script type="text/javascript">
+
     var E = window.wangEditor
     // var editor = new E('#editor')
     var editor = new E( document.getElementById('editor'), document.getElementById('editor_input'))
@@ -81,9 +90,6 @@
     editor.customConfig.uploadFileName ='file';
     editor.create()
 
-    var a = document.getElementById("article_date");
-    var d = new Date();
-    $('#article_date').val(d.getFullYear()+"-"+d.getMonth()+'-'+d.getDate());
 //Preview
     document.getElementById('preview_btn').addEventListener('click', function () {
         // 读取 html
@@ -100,7 +106,7 @@
 //Close Preview
     document.getElementById('preview_close').addEventListener('click', function (e) {
 
-        $("#preview").css('display','none')
+        $("#preview").hide();
 
     }, false)
 //Update. Post to BackEnd
@@ -115,9 +121,15 @@
         var content_displayDate=$('#article_date').val();
         var category_l1=$('#category_l1').val();
         var category_l2=$('#category_l2').val();
-        $.post( url, { content_title: content_title ,content_html: content_html, content_displayDate:content_displayDate,article_category_l1:category_l1,article_category_l2:category_l2,content_length:content_length })
+        var category_l3 = $('input[name=category_l3]:checked').map(function() {
+                return this.value;
+            }).get();
+        $.post( url, { content_title: content_title ,content_html: content_html, content_displayDate:content_displayDate,article_category_l1:category_l1,article_category_l2:category_l2,article_category_l3_array:category_l3,content_length:content_length })
         .success(function( data ) {
             if(data=='0'){
+
+
+
                 alert("提交成功!");
             }else{
                 alert("提交失败!");
@@ -126,14 +138,77 @@
     }
 
     }, false)
+    //Category Level 1 click to change
 
-    $("input:checkbox[name=category_l3]:checked").each(function () {
-        console.log(" Value: " + $(this).val());
-    });
+    document.getElementById('category_l1').addEventListener('change', function (e) {
+        var selectCategory_id=$('#category_l1').val();
+        var selectCategory_id2=0;
+        var url='<?=base_url()?>index.php/back_Category/children_cates/'+selectCategory_id;
+        $.post( url)
+            .success(function( data ) {
+                var cates=JSON.parse(data);
+                selectCategory_id2=appendL2Option(cates);
+
+            }).done(function(data){
+            //after Category_l2 is populated, populate Category_l3 with the first option
+            //only "项目" is selected, the Lv 3 options are able to be selected. "话题" has no Lv 3 categories.
+            switch (selectCategory_id){
+                case '1':{
+                    $('#category_l2_wrap').show();
+                    $('.project_wrap').hide();
+                    break;
+                }
+                case '2':{
+                    $('#category_l2_wrap').hide();
+                    $('#project_section').empty();
+                    $('.project_wrap').show();
+
+
+                    var url='<?=base_url()?>index.php/back_Category/children_cates/2';
+                    $.post(url)
+                        .success(function( data ) {
+                            var cates3=JSON.parse(data);
+                            $.each(cates3,function(key,value){
+                                var url2='<?=base_url()?>index.php/back_Category/children_cates/'+cates3[key]['category_id'];
+                                $.post(url2).success(function(data){
+                                    var data=JSON.parse(data);
+                                    var title=cates3[key]['category_name'];
+                                    var checked_l3=<?=$l3?>;
+                                    appendL3Option(title,data,checked_l3);
+                                }).done(function(){
+
+                                })
+                            })
+                        });
+                }
+            }
+        });
+
+    }, false)
+
+    /*Category Level 2 click to change*/
+    /*
+    document.getElementById('category_l2').addEventListener('change', function (e) {
+
+        var selectCategory_id=$('#category_l2').val();
+        var url='<?=base_url()?>index.php/back_Category/children_cates/'+selectCategory_id;
+        $.post( url)
+            .success(function( data ) {
+                var cates=JSON.parse(data);
+                appendL3Option(cates);
+            });
+    },false)
+*/
+
     $( document ).ready(function() {
-
+        /*set display date*/
+        var a = document.getElementById("article_date");
+        var d = new Date();
+        $('#article_date').val(d.getFullYear()+"-"+d.getMonth()+'-'+d.getDate());
+        /*********/
+        /*set inital content*/
         $.get( "<?=base_url()?>index.php/back_Home/get/<?=$article_id?>", function( data ) {
-            console.log(data);
+            //console.log(data);
             var json =JSON.parse( data );
            $('#article_title').val(json.content_title);
             //decode special html character in json
@@ -141,5 +216,60 @@
             editor .txt.html(html);
 
         });
+
+        /*set initial Category*/
+        $('.project_wrap').hide();
+        var selectCategory_id=$('#category_l1').val();
+        var url='<?=base_url()?>index.php/back_Category/children_cates/'+selectCategory_id;
+        var select_l2=<?=$l2?>;
+        $.post( url)
+            .success(function( data ) {
+                var cates=JSON.parse(data);
+                appendL2Option(cates,select_l2);
+            });
+        /*********/
     });
+    /*add options to Category_l2 dropdown */
+    function appendL2Option(cates,select_l2){
+        $("#category_l2").empty();
+        $.each(cates,function(key,value){
+            if(cates[key]['category_id']==select_l2){
+                var append="<option selected=selected value="+cates[key]['category_id']+">"+cates[key]['category_name']+"</option>"
+            }
+            else
+            {
+                var append="<option value="+cates[key]['category_id']+">"+cates[key]['category_name']+"</option>"
+            }
+
+            $('#category_l2').append(append);
+        })
+        return cates[0]['category_id'];
+
+    }
+    /*add options to Category_l3 checkbox */
+    function appendL3Option(title,cates,check_l3){
+
+        var append="<div class='project_subsection'><div class='title'>"+title+"</div>";
+        $.each(cates,function(key,value){
+            var category_id=cates[key]["category_id"];
+            //if category is selected  ,check the checkbox
+            if($.inArray(category_id,check_l3)>-1){
+                append+='<input type="checkbox" checked name="category_l3" value='+category_id+'>'+cates[key]['category_name'];
+            }
+            else
+            {
+                append+='<input type="checkbox"  name="category_l3" value='+category_id+'>'+cates[key]['category_name'];
+            }
+
+        })
+        append+="</div>";
+        $('#project_section').append(append);
+
+    }
+
+    function get_checked_cates_l3(){
+        var ret;
+
+       //return ret;
+    }
 </script>

@@ -54,4 +54,7 @@ class back_Category extends CI_Controller
         echo urldecode ( json_encode($res));
         //echo json_encode($res);
     }
+
+
+
 }

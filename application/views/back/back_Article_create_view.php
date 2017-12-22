@@ -31,7 +31,7 @@
 
     <!-- favicons
      ================================================== -->
-    <link rel="shortcut icon" href="favicon.png" >
+
 
 </head>
 
@@ -46,13 +46,18 @@
             <option value="2">项目</option>
         </select></div>
 
-    <div><label>二级分类: </label><select id="category_l2">
+    <div id="category_l2_wrap">
+        <label>二级分类: </label>
+        <select id="category_l2">
 
-        </select></div>
+        </select>
+    </div>
 
-    <div><label>项目分类: </label>
-        <input type="checkbox" name="category_l3"   value="13">上海
-        <input type="checkbox" name="category_l3" value="14">广州
+    <div class="project_wrap">
+        <label>项目分类: </label>
+    <div id="project_section">
+
+    </div>
     </div>
     <div style="padding: 15px 0; color: #ccc"></div>
     <div id="editor"></div>
@@ -63,6 +68,7 @@
     </div>
     <button id="submit" class="button">提交</button>
     <button id="preview_btn" class="button">预览</button>
+
 </div>
 
 <div id="preview" class="preview">
@@ -95,7 +101,7 @@
     //Close Preview
     document.getElementById('preview_close').addEventListener('click', function (e) {
 
-        $("#preview").css('display','none')
+        $("#preview").hide();
 
     }, false)
     //Submit. Post to BackEnd
@@ -110,61 +116,133 @@
             var content_displayDate=$('#article_date').val();
             var category_l1=$('#category_l1').val();
             var category_l2=$('#category_l2').val();
-            $.post( url, { content_title: content_title ,content_html: content_html, content_displayDate:content_displayDate,article_category_l1:category_l1,article_category_l2:category_l2,content_length:content_length })
+            var category_l3 = $('input[name=category_l3]:checked').map(function() {
+                return this.value;
+            }).get();
+        //    console.log(category_l3);
+            $.post( url, { content_title: content_title ,content_html: content_html, content_displayDate:content_displayDate,article_category_l1:category_l1,article_category_l2:category_l2,article_category_l3_array:category_l3,content_length:content_length })
                 .success(function( data ) {
-                    if(data=='0'){
-                        alert("提交成功!");
-                    }else{
-                        alert("提交失败!");
+                    if(data=="0000"){
+
+                        alert("提交失败")
+                    }
+                    else{
+
+                        alert("提交成功")
+
                     }
                 });
         }
 
     }, false)
     //Category Level 1 click to change
+
     document.getElementById('category_l1').addEventListener('change', function (e) {
+        var selectCategory_id=$('#category_l1').val();
+        var selectCategory_id2=0;
+        var url='<?=base_url()?>index.php/back_Category/children_cates/'+selectCategory_id;
+        $.post( url)
+            .success(function( data ) {
+                var cates=JSON.parse(data);
+                selectCategory_id2=appendL2Option(cates);
+
+            }).done(function(data){
+                //after Category_l2 is populated, populate Category_l3 with the first option
+            //only "项目" is selected, the Lv 3 options are able to be selected. "话题" has no Lv 3 categories.
+            switch (selectCategory_id){
+                case '1':{
+                    $('#category_l2_wrap').show();
+                    $('.project_wrap').hide();
+                    break;
+                }
+                case '2':{
+                    $('#category_l2_wrap').hide();
+                    $('#project_section').empty();
+                    $('.project_wrap').show();
+                    var url='<?=base_url()?>index.php/back_Category/children_cates/2';
+                    $.post(url)
+                        .success(function( data ) {
+                            var cates3=JSON.parse(data);
+                            $.each(cates3,function(key,value){
+                                var url2='<?=base_url()?>index.php/back_Category/children_cates/'+cates3[key]['category_id'];
+                                $.post(url2).success(function(data){
+                                    var data=JSON.parse(data);
+                                    var title=cates3[key]['category_name'];
+                                    appendL3Option(title,data);
+                                }).done(function(){
+
+                                })
+                            })
+                        });
+                }
+                }
+        });
+
+
+
+
+    }, false)
+
+    /*Category Level 2 click to change*/
+    document.getElementById('category_l2').addEventListener('change', function (e) {
+
+        var selectCategory_id=$('#category_l2').val();
+        var url='<?=base_url()?>index.php/back_Category/children_cates/'+selectCategory_id;
+        $.post( url)
+            .success(function( data ) {
+                var cates=JSON.parse(data);
+                appendL3Option(cates);
+            });
+    },false)
+
+    /*
+    document.getElementById('test').addEventListener('click', function (e) {
+        var checkedVals = $('input[name=category_l3]:checked').map(function() {
+            return this.value;
+        }).get();
+        console.log(checkedVals);
+       // console.log($('input[name=category_l3]:checked').val());
+    },false)
+*/
+
+    $(function() {
+        /*set display date*/
+        var a = document.getElementById("article_date");
+        var d = new Date();
+        $('#article_date').val(d.getFullYear()+"-"+d.getMonth()+'-'+d.getDate());
+        /*********/
+
+        /*set initial Category*/
+        $('.project_wrap').hide();
         var selectCategory_id=$('#category_l1').val();
         var url='<?=base_url()?>index.php/back_Category/children_cates/'+selectCategory_id;
         $.post( url)
             .success(function( data ) {
                 var cates=JSON.parse(data);
-                appendOption(cates);
-
-
+                appendL2Option(cates);
             });
-
-    }, false)
-
-
-    $("input:checkbox[name=category_l3]:checked").each(function () {
-        console.log(" Value: " + $(this).val());
+        /*********/
     });
-
-    function appendOption(cates){
+/*add options to Category_l2 dropdown */
+    function appendL2Option(cates){
         $("#category_l2").empty();
         $.each(cates,function(key,value){
             var append="<option value="+cates[key]['category_id']+">"+cates[key]['category_name']+"</option>"
             $('#category_l2').append(append);
         })
+        return cates[0]['category_id'];
+
     }
+    /*add options to Category_l3 checkbox */
+    function appendL3Option(title,cates){
 
-    $(function() {
+        var append="<div class='project_subsection'><div class='title'>"+title+"</div>";
+        $.each(cates,function(key,value){
+            append+='<input type="checkbox" name="category_l3" value='+cates[key]["category_id"]+'>'+cates[key]['category_name'];
+        })
+        append+="</div>";
+        $('#project_section').append(append);
 
-        /*set display date*/
-        var a = document.getElementById("article_date");
-        var d = new Date();
-        /*********/
-
-        /*set initial Category*/
-        $('#article_date').val(d.getFullYear()+"-"+d.getMonth()+'-'+d.getDate());
-        var selectCategory_id=$('#category_l1').val();
-        var url='<?=base_url()?>index.php/back_Category/children_cates/'+selectCategory_id;
-        $.post( url)
-            .success(function( data ) {
-                var cates=JSON.parse(data);
-                appendOption(cates);
-            });
-        /*********/
-    });
-
+    }
 </script>
+
