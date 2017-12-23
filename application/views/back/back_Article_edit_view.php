@@ -6,13 +6,12 @@
 
     <!--- basic page needs
     ================================================== -->
-    <meta charset="utf-8">
     <title>Hello World Backend</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- mobile specific metas
-    ================================================== -->
+==================================================Q -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- CSS

@@ -13,7 +13,13 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->view('Home_view');
+
+
+        $topics=$this->get_Categories(1);
+        $data=array('topics'=>$topics);
+        //,'project'=>$procjects,'join'=>$joins
+        $this->load->view('Home_view',$data);
+
 
 	}
 
@@ -28,9 +34,15 @@ class Home extends CI_Controller {
             $result=$this->Article_model->get_Article_Meta_Content_by_id($article_id);
             $data['article']=$result;
         }
-
         //subview data only need to be passed to layout and the subview is able to get. Does not require second pass to the subview
         $this->load->view('layout/Layout_view',$data);
+
+    }
+
+    public function get_Categories($cid){
+        $this->load->model('Category_model');
+        $cates=$this->Category_model->get_Child_Cates_by_id($cid);
+        return $cates;
 
     }
 }

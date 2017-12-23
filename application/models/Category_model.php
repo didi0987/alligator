@@ -25,7 +25,7 @@ class Category_model extends CI_Model
     }
     function get_Cate_by_id($cid){
 
-        $query="Select * from  Article_category where category_id=?";
+              $query="Select * from  Article_category where category_id=?";
         return $this->db->query($query,array($cid))->result_array();
 
     }
