@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: chenxiaowang
- * Date: 12/20/17
- * Time: 3:17 AM
- */
+
 class Category_model extends CI_Model
 {
     function __construct() {

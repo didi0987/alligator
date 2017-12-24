@@ -131,6 +131,7 @@ h6 {
 
 p {
 	margin: 15px 0 15px 0;
+	text-align: left;
 }
 
 p img {
@@ -539,8 +540,8 @@ input[type="checkbox"] {
 /* =================================================================== */
 
 /* hr */
-hr {
-	border: solid #283436;
+.content hr {
+	border: solid #f7233f;
 	border-width: 3px 0 0;
 	width: 100px;
 	margin: 11px 0 30px;
@@ -552,7 +553,9 @@ hr {
 	-webkit-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
+	
 }
+
 
 /* for css animations */
 .show {
@@ -567,15 +570,17 @@ hr {
 	font: 28px/54px "raleway-heavy", sans-serif,"Microsoft Yahei";
 	text-transform: uppercase;
 	letter-spacing: 2.5px;
-	color: #FFFFFF;
+	color: #000;
 	margin-bottom: 30px;
 	margin-top: 18px;
 }
 
 .section-head h1 span {
-	color: #fdc501;
+	color: #f7233f;
 	position: relative;
-	left: 3px;
+	left:3px;
+
+
 }
 
 .section-head p {
@@ -584,7 +589,7 @@ hr {
 }
 
 .section-head:hover h1 + hr {
-	border-color: #fdc501;
+	border-color: #f7233f;
 	width: 120px;
 	text-align: left;
 }
@@ -925,12 +930,11 @@ ul#nav li.current a:after {
 	text-align: left;
 	position: relative;
 	border-bottom: 1px solid #15191d;
+	height: 80%;
 }
 
-.hero-content {
-	position: relative;
-	padding-top: 66px;
-	padding-bottom: 102px;
+.pre_content {
+
 }
 
 /* hero slider */
@@ -1054,6 +1058,9 @@ ul#nav li.current a:after {
 
 	.hero-content {
 		padding-bottom: 72px;
+	}
+	.pre_content{
+
 	}
 
 	#hero-slider {
@@ -1604,10 +1611,10 @@ ul#nav li.current a:after {
 /* =================================================================== */
 
 #services {
-	background: #12151B;
-	padding-top: 120px;
+	padding-top: 60px;
 	padding-bottom: 120px;
 	border-bottom: 1px solid #15191d;
+	color:  #000;
 }
 
 .service-list {
@@ -1616,7 +1623,8 @@ ul#nav li.current a:after {
 
 .service-list .bgrid {
 	padding: 0 22px 6px;
-	border-bottom: 1px solid #333538;
+	border-bottom: 1px solid #cdd2da;
+	width: 100%;
 }
 
 .service-list .bgrid {
@@ -1632,18 +1640,17 @@ ul#nav li.current a:after {
 	background: rgba(0, 0, 0, 0.1);
 }
 .service-list .bgrid img{
-	float: left;
+	float: right;
 	min-height: 230px;
-	width: 25%;
+	width: 35%;
 	padding:20px;
 	margin-right: 5%;
-
 }
 .service-list .service-content{
-
-	font-size:15px;
-	line-height: 18px;
-	color:white;
+font-size:15px;
+line-height: 18px;
+color: #4a4444;
+width: 50%;
 }
 .service-list .service-author{
 		font-size: 14px;
@@ -1661,13 +1668,14 @@ ul#nav li.current a:after {
 }
 
 #services .service-list h3 {
-	font: 18px/36px "raleway-heavy", sans-serif,"Microsoft Yahei";
-	color: #fdc501;
+	font: 22px/36px "raleway-heavy", sans-serif,"Microsoft Yahei";
+	color: #000000;
 	padding: 0;
 	text-transform: none;
 	text-align: left;
 	margin-bottom: 6px;
-	font-weight:500;
+	letter-spacing:1px;
+	font-weight: 300;
 }
 
 /* media queries:
@@ -2472,6 +2480,7 @@ footer {
 	padding-bottom: 24px;
 	position: relative;
 	color: rgba(255, 255, 255, 0.15);
+	background: #000;
 }
 
 footer .content {
@@ -2492,9 +2501,10 @@ footer hr {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 30px;
-	max-width: 400px;
+	max-width: 100%;
 	width: 80%;
 	border-top: 1px solid rgba(150, 150, 150, 0.1);
+	width:  100%;
 }
 
 footer .info {
@@ -2559,7 +2569,36 @@ footer .social-links li a:hover {
 footer .social-links li:first-child {
 	margin-left: 0;
 }
+#slide_left
+{
+color:#fff;
+font-family:Helvetica, sans-serif;
 
+}
+#slide_left .title{
+	color:#fff;
+	background: #de2845;
+	width: 355px;
+	font-size:  25px;
+	padding: 2px 15px;
+	text-align: left;
+	margin-left:20%;
+	margin-top:225px;	
+	}
+#slide_left h1{
+	font-weight:bold;
+	font-family:Helvetica, sans-serif;
+	font-weight: bolder;
+}
+#slide_left .text{
+   text-align: left;
+   font-size:25px;
+   margin-top:35px;
+   margin-left:21%;
+   font-weight:bold;
+
+
+}
 /* media queries - .social-links */
 
 @media only screen and (max-width:600px) {
@@ -2569,6 +2608,12 @@ footer .social-links li:first-child {
 
 	footer .social-links li {
 		margin-left: 18px;
+	}
+	#slide_left .title{
+		margin:20px auto;
+	}
+	#slide_left .text{
+		margin:0px 20px;
 	}
 
 }

@@ -3,11 +3,10 @@
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Kreo</title>
+    <title>Hello World</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -20,20 +19,72 @@
     <link rel="stylesheet" href="<?=base_url()?>res/css/base.css">
     <link rel="stylesheet" href="<?=base_url()?>res/css/vendor.min.css">
     <link rel="stylesheet" href="<?=base_url()?>res/css/main.css">
-    <link rel="stylesheet" href="<?=base_url()?>res/css/article.css">
+    <link rel="stylesheet" href="<?=base_url()?>res/css/header.css">
+    <link rel="stylesheet" href="<?=base_url()?>res/css/w3.css">
     <!-- script
     ================================================== -->
-    <script src="js/modernizr.js"></script>
+    <script src="<?=base_url()?>res/js/modernizr.js"></script>
+    <!-- Java Script
+================================================== -->
+    <script src="<?=base_url()?>res/js/jquery-1.11.3.min.js"></script>
+
+    <script src="<?=base_url()?>res/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="<?=base_url()?>res/js/jquery.flexslider-min.js"></script>
+    <script src="<?=base_url()?>res/js/jquery.waypoints.min.js"></script>
+    <script src="<?=base_url()?>res/js/jquery.validate.min.js"></script>
+    <script src="<?=base_url()?>res/js/jquery.fittext.js"></script>
+    <script src="<?=base_url()?>res/js/jquery.placeholder.min.js"></script>
+    <script src="<?=base_url()?>res/js/jquery.magnific-popup.min.js"></script>
+    <script src="<?=base_url()?>res/js/main.js"></script>
 
     <!-- favicons
      ================================================== -->
     <link rel="shortcut icon" href="favicon.png" >
-
 </head>
 
 <body>
 <?php
-$this->load->view('partials/Article_view')
+$this->load->view('partials/Header_view')
 ?>
+
+
+<!-- pre-content, display Category Name
+==================================================-->
+<section id="pre_content_section">
+
+    <div class="pre_content">
+
+        <?php
+        if($pre_content_partial_name){
+            $this->load->view('partials/'.$pre_content_partial_name);
+        }
+
+        ?>
+
+    </div>
+    <!-- homepage hero
+   ==================================================-->
+</section>
+
+<section id="content_section">
+
+    <div class="content">
+
+            <?php
+            if($content_partial_name){
+                $this->load->view('partials/'.$content_partial_name);
+            }
+
+            ?>
+
+
+
+    </div>
+
+
+</section>
+
+
+<?$this->load->view('partials/Footer_view');?>
 </body>
 </html>

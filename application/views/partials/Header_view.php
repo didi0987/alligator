@@ -3,7 +3,7 @@
 
 <header>
     <nav id='cssmenu'>
-        <div class="logo"><a href="index.html">Responsive </a></div>
+        <div class="logo"><a href="index.html">Hello World </a></div>
         <div id="head-mobile"></div>
        <div class="button"><i class="fa fa-bars fa-3x" aria-hidden="true"></i> </div>
         <ul>
@@ -15,7 +15,7 @@
                          foreach($topics as $key=>$value)
                          {
 
-                             echo sprintf (" <li><a href='1122'>%s</a></li>",$value['category_name']);
+                             echo sprintf (" <li><a href='%s'>%s</a></li>",base_url().'/index.php/Article/topics/'.$value['category_id'],$value['category_name']);
                          }
 
                         ?>
@@ -30,31 +30,41 @@
             <li><a href='#'>项目</a>
 
 
-                <ul>
-                   <li> Product 1</li>
-                    <?php
-
-                    foreach($topics as $key=>$value)
+                <ul class="project_submenu">
+                    <?
+                    foreach($projects as $key=>$sub_project)
                     {
+                        echo "<div class='line'>";
+                        echo sprintf("<div class='wrap'><li class='project_l2'>%s</li></div>",$sub_project[0]);
+                        echo "<div class='wrap2'>";
+                        foreach($sub_project[1] as $key=>$value){
 
-                        echo sprintf (" <li><a href='1122'>%s</a></li>",$value['category_name']);
+                            echo sprintf("<li class='project_l3'><a href='%s'>%s</a></li>",$value['category_id'],$value['category_name']);
+
+                        }
+                        echo "</div>";
+                        echo "</div>";
                     }
-
                     ?>
-                   <li>Product 2</li>
-                    <?php
 
-                    foreach($topics as $key=>$value)
-                    {
 
-                        echo sprintf (" <li><a href='1122'>%s</a></li>",$value['category_name']);
-                    }
 
-                    ?>
                 </ul>
             </li>
             <li><a href='#'>导师</a></li>
-            <li><a href='#'>加入</a></li>
+            <li><a href='#'>加入</a>
+                <ul>
+                <?php
+
+                foreach($joins as $key=>$value)
+                {
+
+                    echo sprintf (" <li><a href='%s'>%s</a></li>",$value['category_id'],$value['category_name']);
+                }
+
+                ?>
+                </ul>
+            </li>
         </ul>
 
     </nav>

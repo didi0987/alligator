@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 	 * This is the front end main controller
 	 *
 	 * Maps to the following URL
-	 * 		http://180.76./index.php/Home
+	 * 		http://180.76.152.48/index.php/Home
 
 	 */
 
@@ -15,29 +15,26 @@ class Home extends CI_Controller {
 	{
 
 
-        $topics=$this->get_Categories(1);
-        $data=array('topics'=>$topics);
-        //,'project'=>$procjects,'join'=>$joins
+        $topics=$this->get_Categories(1);//Get Topic Lv 2 Categories
+        $projects=array();
+        $projects_lv2=$this->get_Categories(2);//Get Project Lv 3 Categories
+        $joins=$this->get_Categories(3);//Get Join Categories
+        foreach($projects_lv2 as $key=>$value){
+
+            $name1=$value['category_name'];
+            $projects_lv3=$this->get_Categories($value['category_id']);
+            $tmp_array=[$name1,$projects_lv3];
+            array_push($projects,$tmp_array);
+        }
+
+        $data=array('topics'=>$topics,'projects'=>$projects,'joins'=>$joins);
+
         $this->load->view('Home_view',$data);
 
 
 	}
 
-	public  function article($article_id)
-    {
-        $data=array('article'=>"文章加载错误!");
-        $this->load->model('Article_model');
-        if(!$article_id){
-            show_404();
-        }else
-        {
-            $result=$this->Article_model->get_Article_Meta_Content_by_id($article_id);
-            $data['article']=$result;
-        }
-        //subview data only need to be passed to layout and the subview is able to get. Does not require second pass to the subview
-        $this->load->view('layout/Layout_view',$data);
 
-    }
 
     public function get_Categories($cid){
         $this->load->model('Category_model');
