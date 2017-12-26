@@ -19,8 +19,17 @@
     <link rel="stylesheet" href="<?=base_url()?>res/css/base.css">
     <link rel="stylesheet" href="<?=base_url()?>res/css/vendor.min.css">
     <link rel="stylesheet" href="<?=base_url()?>res/css/main.css">
-    <link rel="stylesheet" href="<?=base_url()?>res/css/header.css">
+
     <link rel="stylesheet" href="<?=base_url()?>res/css/w3.css">
+    <link rel="stylesheet" href="<?=base_url()?>res/css/normalize.css">
+    <link rel="stylesheet" href="<?=base_url()?>res/css/defaults.css">
+    <link rel="stylesheet" href="<?=base_url()?>res/css/nav-core.css">
+    <link rel="stylesheet" href="<?=base_url()?>res/css/nav-layout.css">
+
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="css/ie8-core.min.css">
+    <link rel="stylesheet" href="css/ie8-layout.min.css">
+    <![endif]-->
     <!-- script
     ================================================== -->
     <script src="<?=base_url()?>res/js/modernizr.js"></script>
@@ -36,10 +45,9 @@
     <script src="<?=base_url()?>res/js/jquery.placeholder.min.js"></script>
     <script src="<?=base_url()?>res/js/jquery.magnific-popup.min.js"></script>
     <script src="<?=base_url()?>res/js/main.js"></script>
+    <script src="<?=base_url()?>res/js/html5shiv.min.js"></script>
+    <script src="<?=base_url()?>res/js/rem.min.js"></script>
 
-    <!-- favicons
-     ================================================== -->
-    <link rel="shortcut icon" href="favicon.png" >
 </head>
 
 <body>

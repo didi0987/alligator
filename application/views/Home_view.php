@@ -4,45 +4,53 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 
-   <!--- basic page needs
-   ================================================== -->
-   <meta charset="utf-8">
-    <title>Hello World</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
 
-   <!-- mobile specific metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!--- basic page needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <title>Hello World</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
 
- 	<!-- CSS
-   ================================================== -->
-   <link rel="stylesheet" href="<?=base_url()?>res/css/base.css">
-   <link rel="stylesheet" href="<?=base_url()?>res/css/vendor.min.css">
-   <link rel="stylesheet" href="<?=base_url()?>res/css/main.css">
-    <link rel="stylesheet" href="<?=base_url()?>res/css/header.css">
-    <link rel="stylesheet" href="<?=base_url()?>res/css/w3.css">
-   <!-- script
-   ================================================== -->
-	<script src="<?=base_url()?>res/js/modernizr.js"></script>
-    <!-- Java Script
-================================================== -->
-    <script src="<?=base_url()?>res/js/jquery-1.11.3.min.js"></script>
+        <!-- mobile specific metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <script src="<?=base_url()?>res/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="<?=base_url()?>res/js/jquery.flexslider-min.js"></script>
-    <script src="<?=base_url()?>res/js/jquery.waypoints.min.js"></script>
-    <script src="<?=base_url()?>res/js/jquery.validate.min.js"></script>
-    <script src="<?=base_url()?>res/js/jquery.fittext.js"></script>
-    <script src="<?=base_url()?>res/js/jquery.placeholder.min.js"></script>
-    <script src="<?=base_url()?>res/js/jquery.magnific-popup.min.js"></script>
-    <script src="<?=base_url()?>res/js/main.js"></script>
+        <!-- CSS
+      ================================================== -->
+        <link rel="stylesheet" href="<?=base_url()?>res/css/base.css">
+        <link rel="stylesheet" href="<?=base_url()?>res/css/vendor.min.css">
+        <link rel="stylesheet" href="<?=base_url()?>res/css/main.css">
+        <link rel="stylesheet" href="<?=base_url()?>res/css/w3.css">
+        <link rel="stylesheet" href="<?=base_url()?>res/css/normalize.css">
+        <link rel="stylesheet" href="<?=base_url()?>res/css/defaults.css">
+        <link rel="stylesheet" href="<?=base_url()?>res/css/nav-core.css">
+        <link rel="stylesheet" href="<?=base_url()?>res/css/nav-layout.css">
 
-   <!-- favicons
-	================================================== -->
-	<link rel="shortcut icon" href="favicon.png" >
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" href="css/ie8-core.min.css">
+        <link rel="stylesheet" href="css/ie8-layout.min.css">
+        <![endif]-->
+        <!-- script
+        ================================================== -->
+        <script src="<?=base_url()?>res/js/modernizr.js"></script>
+        <!-- Java Script
+    ================================================== -->
+        <script src="<?=base_url()?>res/js/jquery-1.11.3.min.js"></script>
 
-</head>
+        <script src="<?=base_url()?>res/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="<?=base_url()?>res/js/jquery.flexslider-min.js"></script>
+        <script src="<?=base_url()?>res/js/jquery.waypoints.min.js"></script>
+        <script src="<?=base_url()?>res/js/jquery.validate.min.js"></script>
+        <script src="<?=base_url()?>res/js/jquery.fittext.js"></script>
+        <script src="<?=base_url()?>res/js/jquery.placeholder.min.js"></script>
+        <script src="<?=base_url()?>res/js/jquery.magnific-popup.min.js"></script>
+        <script src="<?=base_url()?>res/js/main.js"></script>
+        <script src="<?=base_url()?>res/js/html5shiv.min.js"></script>
+        <script src="<?=base_url()?>res/js/rem.min.js"></script>
+
+    </head>
+
 
 <body>
 
