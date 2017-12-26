@@ -4,16 +4,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Article extends CI_Controller {
 
     public function topics($cid){
-
+        $cate_name="最新话题";
        $this->load->model('Article_model');
        $this->load->model('Category_model');
-       $res=$this->Article_model->get_Article_by_Cate($cid);
-       $cate=$this->Category_model->get_Cate_by_id($cid);
-       $cate_name=$cate[0]['category_name'];
+       $res=$this->Article_model->get_Topics_by_Cate($cid);
+        //0 is all topics
+       if(!$cid=='0'){
+           $cate=$this->Category_model->get_Cate_by_id($cid);
+           $cate_name=$cate[0]['category_name'];
+       }
+
        $header_data=$this->load_Header_data();
        $content_data=array('cate_name'=>$cate_name,'content'=>$res);
-        //load_partials pass the partials name to layout in /partials;
+        //load_partials pass the partials name to layout in /partials, so that the layout can render
         $load_partials=array('pre_content_partial_name'=>'','content_partial_name'=>'Topics_view');
+        //var_dump($res);
+        $data=array_merge($header_data,$content_data,$load_partials);
+        $this->load->view("layout/Layout_view",$data);
+
+    }
+
+    public function projects($cid){
+        $cate_name="最新话题";
+        $this->load->model('Article_model');
+        $this->load->model('Category_model');
+        $res=$this->Article_model->get_Projects_by_Cate($cid);
+        $cate=$this->Category_model->get_Cate_by_id($cid);
+       // $cate_name=$cate[0]['category_name'];
+        $header_data=$this->load_Header_data();
+        $content_data=array('cate_name'=>$cate_name,'content'=>$res);
+        //load_partials pass the partials name to layout in /partials, so that the layout can render
+        $load_partials=array('pre_content_partial_name'=>'Project_precontent_View','content_partial_name'=>'Projects_view');
         //var_dump($res);
         $data=array_merge($header_data,$content_data,$load_partials);
         $this->load->view("layout/Layout_view",$data);

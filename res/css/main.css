@@ -672,7 +672,7 @@ header.opaque {
 	}
 
 	header .logo {
-		margin-left: -30px;
+		/* margin-left: -30px; */
 	}
 
 }
@@ -1647,10 +1647,14 @@ ul#nav li.current a:after {
 	margin-right: 5%;
 }
 .service-list .service-content{
-font-size:15px;
-line-height: 18px;
-color: #4a4444;
-width: 50%;
+
+font-size:15px;
+
+line-height: 18px;
+
+color: #4a4444;
+
+width: 50%;
 }
 .service-list .service-author{
 		font-size: 14px;
@@ -2516,16 +2520,19 @@ footer .info {
 }
 
 footer .footer-logo {
-	width: 100px;
-	height: 23px;
-	background: url("../images/logoW@2x.png") no-repeat center;
-	background-size: 100px 23px;
+	width: 124px;
+	height: 125px;
+	background: url("./../../res/images/logoY.png") no-repeat center;
+	background-size: 125px 125px;
 	margin: 0 auto 21px;
 	display: block;
 	filter: alpha(opacity=10);
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-	opacity: 0.1;
+	opacity: 0.8;
 	zoom: 1;
+	background-color: #ffffff;
+	border-radius: 62px;
+	/* padding-left:  20px; */
 }
 
 /* copyright */

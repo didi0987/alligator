@@ -30,7 +30,7 @@
                 echo  sprintf('<div class="bgrid">
                      <a href= "">
                     <div><img src="%s"></div>
-                    <h3>[话题] %s</h3>
+                    <h3>[%s] %s</h3>
                     <div class="service-author">发表于: %s | %s</div>
                     <div class="service-content">
                         <p>
@@ -39,7 +39,7 @@
                     </div>
                       
                 </a>
-            </div>',$src,$value['content_title'],$value['content_displayDate'],$value['article_author'],$substr_text);
+            </div>',$src,$value['category_name'],$value['content_title'],$value['content_displayDate'],$value['article_author'],$substr_text);
 
             }
             ?>

@@ -15,8 +15,8 @@ class ManageAuth {
         $this->CI->load->helper('url');
         if ( preg_match("/back.*/i", uri_string()) ) {        // 需要进行权限检查的URL
                        $this->CI->load->library('session');
-                       if( !$this->CI->session->userdata('#2017WoW$') ) {
-                           redirect('nimda');
+                       if( !$this->CI->session->userdata('pc') ) {
+                           redirect('index.php/nimda');
                            return;
                        }        }
                             }

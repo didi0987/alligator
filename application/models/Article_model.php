@@ -52,7 +52,7 @@ class Article_model extends CI_Model
 
     function list_Article_meta($pageNumber){
 
-        $query="SELECT article_id,content_title,article_createDate,article_lastUpdateDate,article_display FROM Article_meta join Article_content where Article_meta.article_content_ref=Article_content.content_ref order by article_lastUpdateDate DESC,article_lastUpdateTime ASC";
+        $query="SELECT article_id,content_title,article_createDate,article_lastUpdateDate,article_display FROM Article_meta join Article_content where Article_meta.article_content_ref=Article_content.content_ref order by article_lastUpdateDate DESC,article_lastUpdateTime DESC";
         return $this->db->query($query)->result_array();
 
     }
@@ -84,10 +84,27 @@ class Article_model extends CI_Model
         return $this->db->query($query,array($article_id))->result_array();
 
     }
-    function get_Article_by_Cate($cid){
-        $query="Select * from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l2=c.category_id AND d.article_category_l2=? AND a.article_display=1";
+    function get_Topics_by_Cate($cid){
+        if($cid=='0')//全部
+        {
+            $query="Select * from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l2=c.category_id AND a.article_display=1 ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC";
+        }
+        else{
+        $query="Select * from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l2=c.category_id AND d.article_category_l2=? AND a.article_display=1 ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC";
+            }
         return $this->db->query($query,array($cid))->result_array();
 
+    }
+
+    function get_Projects_by_Cate($cid){
+        if($cid=='0')//全部
+        {
+            $query="Select * from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l3=c.category_id AND a.article_display=1 ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC";
+        }
+        else{
+            $query="Select * from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l3=c.category_id AND d.article_category_l3=? AND a.article_display=1 ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC";
+        }
+        return $this->db->query($query,array($cid))->result_array();
     }
 
 }

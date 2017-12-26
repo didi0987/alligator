@@ -3,7 +3,7 @@
 
 <header>
     <nav id='cssmenu'>
-        <div class="logo"><a href="index.html">Hello World </a></div>
+        <div class="logo"><a href="<?=base_url()?>index.php/Home"><img src="<?=base_url()?>res/images/logoH.png"></a></div>
         <div id="head-mobile"></div>
        <div class="button"><i class="fa fa-bars fa-3x" aria-hidden="true"></i> </div>
         <ul>
@@ -11,7 +11,8 @@
                 <ul>
 
                         <?php
-
+                        //print "全部";
+                        echo sprintf (" <li><a href='%s'>%s</a></li>",base_url().'/index.php/Article/topics/0',"全部");
                          foreach($topics as $key=>$value)
                          {
 
@@ -31,7 +32,11 @@
 
 
                 <ul class="project_submenu">
+
                     <?
+                    echo "<div class='line'>";
+                    echo sprintf("<div class='wrap'><li class='project_l2'>%s</li></div>","全部分类");
+                    echo sprintf("<div class='wrap2'><li class='project_l3'><a href='%s'>全部项目</a></li></div></div>",base_url().'/index.php/Article/projects/0');
                     foreach($projects as $key=>$sub_project)
                     {
                         echo "<div class='line'>";
@@ -39,7 +44,7 @@
                         echo "<div class='wrap2'>";
                         foreach($sub_project[1] as $key=>$value){
 
-                            echo sprintf("<li class='project_l3'><a href='%s'>%s</a></li>",$value['category_id'],$value['category_name']);
+                            echo sprintf("<li class='project_l3'><a href='%s'>%s</a></li>",base_url().'/index.php/Article/projects/'.$value['category_id'],$value['category_name']);
 
                         }
                         echo "</div>";
