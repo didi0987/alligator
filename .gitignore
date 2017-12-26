@@ -81,4 +81,4 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 upload/*
-config/*
+application/config/database.php/.classpath
