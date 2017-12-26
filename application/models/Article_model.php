@@ -99,10 +99,10 @@ class Article_model extends CI_Model
     function get_Projects_by_Cate($cid){
         if($cid=='0')//全部
         {
-            $query="Select * from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l3=c.category_id AND a.article_display=1 ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC";
+            $query="Select a.article_id,b.content_title,c.category_name,b.content_html from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l3=c.category_id AND a.article_display=1 group by a.article_id ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC";
         }
         else{
-            $query="Select * from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l3=c.category_id AND d.article_category_l3=? AND a.article_display=1 ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC";
+            $query="Select a.article_id,b.content_title,c.category_name,b.content_html from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l3=c.category_id AND d.article_category_l3=? AND a.article_display=1 ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC";
         }
         return $this->db->query($query,array($cid))->result_array();
     }

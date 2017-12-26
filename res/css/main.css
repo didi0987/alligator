@@ -1693,7 +1693,9 @@ width: 50%;
 	.service-list .bgrid {
 		padding: 0 18px 6px;
 	}
-
+	.service-list .service-content{
+		width:95%;
+	}
 }
 
 @media only screen and (max-width:768px) {
@@ -1723,7 +1725,7 @@ width: 50%;
 /* =================================================================== */
 
 #about {
-	background: #111417;
+	
 	padding-top: 30px;
 	padding-bottom: 120px;
 	border-bottom: 1px solid #15191d;
@@ -1731,12 +1733,21 @@ width: 50%;
 
 #about h3 {
 	font: 18px/36px "raleway-heavy", sans-serif,"Microsoft Yahei";
-	color: #fdc501;
+	color: #000;
 	text-transform: none;
 	letter-spacing: 0;
 	padding: 0;
 	margin-bottom: 6px;
 }
+@media only screen and (max-width:1024px) {
+#about .member-name{
+		padding: 5px;
+		float: left;
+	}
+
+}
+
+
 
 /* process
 -------------------------------------------------------------- */
@@ -1796,6 +1807,8 @@ width: 50%;
 	line-height: 1;
 	overflow: hidden;
 	background: #FFFFFF;
+	min-height:280px;
+	max-height:280px
 }
 
 #team-wrapper .member-pic img {
@@ -1808,7 +1821,7 @@ width: 50%;
 	bottom: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(253, 197, 1, 0.5);
+	background: rgba(247, 35, 63,0.1);
 	filter: alpha(opacity=0);
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	opacity: 0;
@@ -1865,12 +1878,9 @@ width: 50%;
 
 @media only screen and (max-width:600px) {
 	#team-wrapper .member-pic {
-		width: 80px;
-		height: 80px;
+		width: 100%;
 		float: left;
-		margin-right: 30px;
 		position: relative;
-		top: 6px;
 	}
 
 	#team-wrapper .member-pic .mask {

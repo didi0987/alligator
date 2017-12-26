@@ -29,8 +29,10 @@ class Article extends CI_Controller {
         $this->load->model('Article_model');
         $this->load->model('Category_model');
         $res=$this->Article_model->get_Projects_by_Cate($cid);
-        $cate=$this->Category_model->get_Cate_by_id($cid);
-       // $cate_name=$cate[0]['category_name'];
+        if(!$cid=='0'){
+            $cate=$this->Category_model->get_Cate_by_id($cid);
+            $cate_name=$cate[0]['category_name'];
+        }
         $header_data=$this->load_Header_data();
         $content_data=array('cate_name'=>$cate_name,'content'=>$res);
         //load_partials pass the partials name to layout in /partials, so that the layout can render

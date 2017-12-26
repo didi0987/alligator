@@ -22,11 +22,11 @@
             foreach ($content as $key=>$value){
                 $html=$value['content_html'];
                 $text=strip_tags($html);
-                $substr_text=mb_substr($text,0,150,'utf-8')."...";
+                $substr_text=mb_substr($text,0,150,'utf-8')."...";//display first 150 charactors as descriptions
                 $doc = new DOMDocument();
                 $doc->loadHTML($html);
                 $xpath = new DOMXPath($doc);
-                $src = $xpath->evaluate("string(//img/@src)");
+                $src = $xpath->evaluate("string(//img/@src)");//get first image src in the article
                 echo  sprintf('<div class="bgrid">
                      <a href= "">
                     <div><img src="%s"></div>
