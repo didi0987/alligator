@@ -158,10 +158,6 @@
 
         <li class="nav-submenu"><a>话题</a>
             <ul>
-                <li><a href="#">Some Service</a></li>
-                <li><a href="#">Another Service</a></li>
-                <li><a href="#">Good Service</a></li>
-                <li><a href="#">Room Service</a></li>
 
                 <?php
                 //print "全部";
@@ -176,40 +172,47 @@
             </ul>
         </li>
 
-        <li class="nav-submenu"><a href="#">Products</a>
-            <ul>
-                <li><a href="#">Food</a></li>
-                <li class="nav-submenu"><a href="#">Drinks</a>
-                    <ul>
-                        <li><a href="#">Water</a></li>
-                        <li class="nav-submenu"><a href="#">Cola</a>
-                            <ul>
-                                <li class="nav-submenu nav-left"><a href="#">Coca Cola</a>
-                                    <ul>
-                                        <li><a href="#">This one goes left!</a></li>
-                                        <li><a href="#">Too much sugar...</a></li>
-                                        <li><a href="#">Yummy</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Pepsi</a></li>
-                                <li><a href="#">River</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Lemonade</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Candy</a></li>
-                <li><a href="#">Ice Cream</a></li>
+        <li class="nav-submenu"><a>项目</a>
+            <ul class="longer">
+                <?
+
+
+                echo sprintf("<li class='l2'>全部项目</li><div class='wrap2'><li><a href='%s'>全部项目</a></li></div>",base_url().'index.php/Article/projects/0');
+
+                foreach($projects as $key=>$sub_project)
+                {
+                    echo "<div class='oneline'>";
+                    echo sprintf("<div class='wrap1'><li class='l2'>%s</li></div>",$sub_project[0]);
+                    echo "<div class='wrap2'>";
+
+                    foreach($sub_project[1] as $key=>$value){
+
+                        echo sprintf("<li><a href='%s'>%s</a></li>",base_url().'index.php/Article/projects/'.$value['category_id'],$value['category_name']);
+
+                    }
+
+                    echo "</div>";
+                    echo "</div>";
+
+                }
+                ?>
             </ul>
         </li>
-        <li class="nav-submenu"><a href="#">Albums</a>
+        <li class="nav-submenu"><a href="#">导师</a></li>
+        <li class="nav-submenu"><a href="#">加入</a>
             <ul>
-                <li><a href="#">Christmas</a></li>
-                <li><a href="#">New Year</a></li>
-                <li><a href="#">Easter</a></li>
+                <?php
+
+                foreach($joins as $key=>$value)
+                {
+
+                    echo sprintf (" <li><a href='%s'>%s</a></li>",$value['category_id'],$value['category_name']);
+                }
+
+                ?>
             </ul>
         </li>
-        <li><a href="#">Contact</a></li>
+
     </ul>
 </nav>
 
