@@ -12,11 +12,11 @@
 
                         <?php
                         //print "全部";
-                        echo sprintf (" <li><a href='%s'>%s</a></li>",base_url().'/index.php/Article/topics/0',"全部");
+                        echo sprintf (" <li><a href='%s'>%s</a></li>",base_url().'index.php/Article/topics/0',"全部");
                          foreach($topics as $key=>$value)
                          {
 
-                             echo sprintf (" <li><a href='%s'>%s</a></li>",base_url().'/index.php/Article/topics/'.$value['category_id'],$value['category_name']);
+                             echo sprintf (" <li><a href='%s'>%s</a></li>",base_url().'index.php/Article/topics/'.$value['category_id'],$value['category_name']);
                          }
 
                         ?>
@@ -34,21 +34,23 @@
                 <ul class="project_submenu">
 
                     <?
-                    echo "<div class='line'>";
-                    echo sprintf("<div class='wrap'><li class='project_l2'>%s</li></div>","全部分类");
-                    echo sprintf("<div class='wrap2'><li class='project_l3'><a href='%s'>全部项目</a></li></div></div>",base_url().'/index.php/Article/projects/0');
+
+
+                    echo sprintf("<div class='red wrap project_l2'>全部项目</div><a href='%s'><li class='project_l2'>全部项目</li></a>",base_url().'index.php/Article/projects/0');
+
                     foreach($projects as $key=>$sub_project)
                     {
-                        echo "<div class='line'>";
-                        echo sprintf("<div class='wrap'><li class='project_l2'>%s</li></div>",$sub_project[0]);
-                        echo "<div class='wrap2'>";
+                        //echo "<div class='line'>";
+                        echo sprintf("<div class='red wrap project_l2'>%s</div>",$sub_project[0]);
+                       // echo "<ul class='wrap2'>";
+
                         foreach($sub_project[1] as $key=>$value){
 
-                            echo sprintf("<li class='project_l3'><a href='%s'>%s</a></li>",base_url().'/index.php/Article/projects/'.$value['category_id'],$value['category_name']);
+                            echo sprintf("<li class='project_l2'><a href='%s'>%s</a></li>",base_url().'index.php/Article/projects/'.$value['category_id'],$value['category_name']);
 
                         }
-                        echo "</div>";
-                        echo "</div>";
+
+                        //echo "</ul>";
                     }
                     ?>
 
