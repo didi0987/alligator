@@ -1804,13 +1804,16 @@ width: 50%;
 	line-height: 1;
 	overflow: hidden;
 	background: #FFFFFF;
-	min-height:280px;
 	max-height:280px
 }
 
 #team-wrapper .member-pic img {
 	vertical-align: bottom;
 }
+#team-wrapper .member-name{
+	margin-bottom:40pxl
+}
+
 
 #team-wrapper .mask {
 	position: absolute;
