@@ -25,7 +25,7 @@ class Article extends CI_Controller {
     }
 
     public function projects($cid){
-        $cate_name="最新话题";
+        $cate_name="最新项目";
         $this->load->model('Article_model');
         $this->load->model('Category_model');
         $res=$this->Article_model->get_Projects_by_Cate($cid);

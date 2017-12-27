@@ -186,19 +186,6 @@
 
     }, false)
 
-    /*Category Level 2 click to change*/
-    /*
-    document.getElementById('category_l2').addEventListener('change', function (e) {
-
-        var selectCategory_id=$('#category_l2').val();
-        var url='<?=base_url()?>index.php/back_Category/children_cates/'+selectCategory_id;
-        $.post( url)
-            .success(function( data ) {
-                var cates=JSON.parse(data);
-                appendL3Option(cates);
-            });
-    },false)
-*/
 
     $( document ).ready(function() {
 
