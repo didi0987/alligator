@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="<?=base_url()?>res/css/base.css">
     <link rel="stylesheet" href="<?=base_url()?>res/css/vendor.min.css">
     <link rel="stylesheet" href="<?=base_url()?>res/css/main.css">
+    <link rel="stylesheet" href="<?=base_url()?>res/css/article.css">
 
     <link rel="stylesheet" href="<?=base_url()?>res/css/w3.css">
     <link rel="stylesheet" href="<?=base_url()?>res/css/normalize.css">

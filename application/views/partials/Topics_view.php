@@ -22,13 +22,14 @@
             foreach ($content as $key=>$value){
                 $html=$value['content_html'];
                 $text=strip_tags($html);
-                $substr_text=mb_substr($text,0,150,'utf-8')."...";//display first 150 charactors as descriptions
+                $substr_text=mb_substr($text,0,80,'utf-8')."...";//display first 80 charactors as descriptions
                 $doc = new DOMDocument();
                 $doc->loadHTML($html);
                 $xpath = new DOMXPath($doc);
                 $src = $xpath->evaluate("string(//img/@src)");//get first image src in the article
+                $href=base_url()."index.php/article/article_detail/".$value['article_id'];
                 echo  sprintf('<div class="bgrid">
-                     <a href= "">
+                     <a href= "%s">
                     <div><img src="%s"></div>
                     <h3>[%s] %s</h3>
                     <div class="service-author">发表于: %s | %s</div>
@@ -39,7 +40,7 @@
                     </div>
                       
                 </a>
-            </div>',$src,$value['category_name'],$value['content_title'],$value['content_displayDate'],$value['article_author'],$substr_text);
+            </div>',$href,$src,$value['category_name'],$value['content_title'],$value['content_displayDate'],$value['article_author'],$substr_text);
 
             }
             ?>

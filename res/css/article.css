@@ -7,6 +7,14 @@
     -webkit-margin-end: 0px;
     font-weight: bold;
     width: 90%;
+    line-height: 35px;
+}
+#article .article_container{
+    margin-top: 114px;
+}
+#article .article_author{
+
+    color:#ffd900;
 }
 blockquote
 {

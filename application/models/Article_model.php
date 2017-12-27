@@ -59,7 +59,7 @@ class Article_model extends CI_Model
 
     function get_Article_Meta_Content_by_id($article_id){
 
-        $query="SELECT content_title,content_html,content_displayDate FROM Article_meta a,Article_content where a.article_content_ref=Article_content.content_ref AND a.article_id=".$article_id;
+        $query="SELECT article_author,content_title,content_html,content_displayDate FROM Article_meta a,Article_content where a.article_content_ref=Article_content.content_ref AND a.article_id=".$article_id;
         $res=$this->db->query($query)->result_array();
         if(!$res){
             show_404();

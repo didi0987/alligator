@@ -42,6 +42,20 @@ class Article extends CI_Controller {
         $this->load->view("layout/Layout_view",$data);
 
     }
+    public function article_detail($aid){
+
+        $this->load->model('Article_model');
+        $article=$this->Article_model->get_Article_Meta_Content_by_id($aid);
+        $header_data=$this->load_Header_data();
+        $content_data=array('article'=>$article);
+        //load_partials pass the partials name to layout in /partials, so that the layout can render
+        $load_partials=array('pre_content_partial_name'=>'Project_precontent_View','content_partial_name'=>'Article_view');
+        //var_dump($res);
+        $data=array_merge($header_data,$content_data,$load_partials);
+        $this->load->view("layout/Layout_view",$data);
+
+    }
+
 
     public function load_Header_data(){
 
@@ -89,3 +103,4 @@ class Article extends CI_Controller {
 
 
 ?>
+

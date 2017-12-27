@@ -1630,7 +1630,7 @@ ul#nav li.current a:after {
 	-webkit-transition: all 0.3s ease-in-out;
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 }
 
 .service-list .bgrid:hover {
@@ -1644,14 +1644,10 @@ ul#nav li.current a:after {
 	margin-right: 5%;
 }
 .service-list .service-content{
-
-font-size:15px;
-
-line-height: 18px;
-
-color: #4a4444;
-
-width: 50%;
+font-size:15px;
+line-height: 18px;
+color: #6b6060;
+width: 50%;
 }
 .service-list .service-author{
 		font-size: 14px;
