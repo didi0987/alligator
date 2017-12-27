@@ -44,10 +44,8 @@
 
             }
             ?>
-            <div class="pagniation">
 
                 <?=$links?>
-            </div>
 
 
 

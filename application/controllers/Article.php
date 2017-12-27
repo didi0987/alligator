@@ -8,9 +8,16 @@ class Article extends CI_Controller {
        $this->load->model('Article_model');
        $this->load->model('Category_model');
        $this->load->library('pagination');
-       $page_size=2;
+       $page_size=5;
        $config['base_url']=site_url('index.php/Article/topics/'.$cid);
        $config['total_rows']=50;
+       $config['last_link']=FALSE;
+       $config['full_tag_open']='<div class="bgrid pagination">';
+        $config['num_tag_open']='<div class="num">';
+        $config['cur_tag_open']='<div class="current">';
+        $config['full_tag_close']='</div>';
+        $config['num_tag_close']='</div>';
+        $config['cur_tag_close']='</div>';
        $config['per_page']=$page_size;
        $this->pagination->initialize($config);
        $links=$this->pagination->create_links();

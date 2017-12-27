@@ -2619,6 +2619,31 @@ footer .footer-link{
 
 
 }
+.pagination{
+
+	letter-spacing:  20px;
+	text-align: center;
+	font-size: 18px;
+	margin-top: 20px;
+	border-bottom: none !important;
+}
+.pagination .num{
+	display:inline;
+
+}
+.pagination .current{
+	background:#ee3b4a;
+	color:#fff;
+	display: inline-block;
+	text-align:center;
+	/* padding-left: 20px; */
+	margin-right: 15px;
+in'line-height:;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;padding: 6px 14px;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;border-radius: 35px;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;height: 35px;;;;;;;;;;
+;;;;;;;;;width: 35px;;;;;;;;;;
+}
 /* media queries - .social-links */
 
 @media only screen and (max-width:600px) {
