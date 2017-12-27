@@ -204,7 +204,7 @@ header h1:before {
 }
 
 
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1068px) {
 
     body {
         padding: 0 !important;
