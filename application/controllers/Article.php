@@ -12,6 +12,7 @@ class Article extends CI_Controller {
        $config['base_url']=site_url('index.php/Article/topics/'.$cid);
        $config['total_rows']=50;
        $config['last_link']=FALSE;
+        $config['first_link']=FALSE;
        $config['full_tag_open']='<div class="bgrid pagination">';
         $config['num_tag_open']='<div class="num">';
         $config['cur_tag_open']='<div class="current">';
