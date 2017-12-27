@@ -7,7 +7,16 @@ class Article extends CI_Controller {
         $cate_name="最新话题";
        $this->load->model('Article_model');
        $this->load->model('Category_model');
-       $res=$this->Article_model->get_Topics_by_Cate($cid);
+       $this->load->library('pagination');
+       $page_size=2;
+       $config['base_url']=site_url('index.php/Article/topics/'.$cid);
+       $config['total_rows']=50;
+       $config['per_page']=$page_size;
+       $this->pagination->initialize($config);
+       $links=$this->pagination->create_links();
+       $offset=intval($this->uri->segment(4));
+
+       $res=$this->Article_model->get_Topics_by_Cate($cid,$offset,$page_size);
         //0 is all topics
        if(!$cid=='0'){
            $cate=$this->Category_model->get_Cate_by_id($cid);
@@ -17,9 +26,9 @@ class Article extends CI_Controller {
        $header_data=$this->load_Header_data();
        $content_data=array('cate_name'=>$cate_name,'content'=>$res);
         //load_partials pass the partials name to layout in /partials, so that the layout can render
-        $load_partials=array('pre_content_partial_name'=>'','content_partial_name'=>'Topics_view');
+        $load_partials=array('pre_content_partial_name'=>'','content_partial_name'=>'Topics_view','post_content_partial_name'=>'');
         //var_dump($res);
-        $data=array_merge($header_data,$content_data,$load_partials);
+        $data=array_merge(array('links'=>$links),$header_data,$content_data,$load_partials);
         $this->load->view("layout/Layout_view",$data);
 
     }
@@ -36,7 +45,7 @@ class Article extends CI_Controller {
         $header_data=$this->load_Header_data();
         $content_data=array('cate_name'=>$cate_name,'content'=>$res);
         //load_partials pass the partials name to layout in /partials, so that the layout can render
-        $load_partials=array('pre_content_partial_name'=>'Project_precontent_View','content_partial_name'=>'Projects_view');
+        $load_partials=array('pre_content_partial_name'=>'Project_precontent_View','content_partial_name'=>'Projects_view','post_content_partial_name'=>'');
         //var_dump($res);
         $data=array_merge($header_data,$content_data,$load_partials);
         $this->load->view("layout/Layout_view",$data);
@@ -49,7 +58,7 @@ class Article extends CI_Controller {
         $header_data=$this->load_Header_data();
         $content_data=array('article'=>$article);
         //load_partials pass the partials name to layout in /partials, so that the layout can render
-        $load_partials=array('pre_content_partial_name'=>'Project_precontent_View','content_partial_name'=>'Article_view');
+        $load_partials=array('pre_content_partial_name'=>'Project_precontent_View','content_partial_name'=>'Article_view','post_content_partial_name'=>'');
         //var_dump($res);
         $data=array_merge($header_data,$content_data,$load_partials);
         $this->load->view("layout/Layout_view",$data);
