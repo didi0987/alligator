@@ -118,6 +118,7 @@
         var content_html=editor.txt.html();//get content
         var content_length=editor.txt.text().length;//get length of the content
         var content_displayDate=$('#article_date').val();
+        console.log(content_displayDate)
         var category_l1=$('#category_l1').val();
         var category_l2=$('#category_l2').val();
         var category_l3 = $('input[name=category_l3]:checked').map(function() {
@@ -200,16 +201,15 @@
 */
 
     $( document ).ready(function() {
-        /*set display date*/
-        var a = document.getElementById("article_date");
-        var d = new Date();
-        $('#article_date').val(d.getFullYear()+"-"+d.getMonth()+'-'+d.getDate());
-        /*********/
+
         /*set inital content*/
         $.get( "<?=base_url()?>index.php/back_Home/get/<?=$article_id?>", function( data ) {
             //console.log(data);
             var json =JSON.parse( data );
-           $('#article_title').val(json.content_title);
+       /*set display date*/
+            $('#article_date').val(json.content_displayDate);
+        /*********/
+            $('#article_title').val(json.content_title);
             //decode special html character in json
            var html=(jQuery('<div />').html(json.content_html).text())
             editor .txt.html(html);

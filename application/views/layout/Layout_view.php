@@ -92,7 +92,23 @@ $this->load->view('partials/Header_view')
 
 
 </section>
+<section id="post_content_section">
 
+    <div class="post_content">
+
+            <?php
+            if($post_content_partial_name){
+                $this->load->view('partials/'.$post_content_partial_name);
+            }
+
+            ?>
+
+
+
+    </div>
+
+
+</section>
 
 <?$this->load->view('partials/Footer_view');?>
 </body>
