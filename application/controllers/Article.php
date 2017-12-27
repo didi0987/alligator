@@ -2,29 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Article extends CI_Controller {
-
+    private $page_size=5;
     public function topics($cid){
         $cate_name="最新话题";
        $this->load->model('Article_model');
        $this->load->model('Category_model');
        $this->load->library('pagination');
-       $page_size=5;
-       $config['base_url']=site_url('index.php/Article/topics/'.$cid);
-       $config['total_rows']=50;
-       $config['last_link']=FALSE;
-        $config['first_link']=FALSE;
-       $config['full_tag_open']='<div class="bgrid pagination">';
-        $config['num_tag_open']='<div class="num">';
-        $config['cur_tag_open']='<div class="current">';
-        $config['full_tag_close']='</div>';
-        $config['num_tag_close']='</div>';
-        $config['cur_tag_close']='</div>';
-       $config['per_page']=$page_size;
-       $this->pagination->initialize($config);
-       $links=$this->pagination->create_links();
-       $offset=intval($this->uri->segment(4));
+      $offset=intval($this->uri->segment(4));
 
-       $res=$this->Article_model->get_Topics_by_Cate($cid,$offset,$page_size);
+       $res=$this->Article_model->get_Topics_by_Cate($cid,$offset,$this->page_size);
+       $links=$this->get_pagination($cid,'topics');
         //0 is all topics
        if(!$cid=='0'){
            $cate=$this->Category_model->get_Cate_by_id($cid);
@@ -45,7 +32,11 @@ class Article extends CI_Controller {
         $cate_name="最新项目";
         $this->load->model('Article_model');
         $this->load->model('Category_model');
-        $res=$this->Article_model->get_Projects_by_Cate($cid);
+        $this->load->library('pagination');
+        $offset=intval($this->uri->segment(4));
+
+        $links=$this->get_pagination($cid,'projects');
+        $res=$this->Article_model->get_Projects_by_Cate($cid,$offset,$this->page_size);
         if(!$cid=='0'){
             $cate=$this->Category_model->get_Cate_by_id($cid);
             $cate_name=$cate[0]['category_name'];
@@ -55,7 +46,7 @@ class Article extends CI_Controller {
         //load_partials pass the partials name to layout in /partials, so that the layout can render
         $load_partials=array('pre_content_partial_name'=>'Project_precontent_View','content_partial_name'=>'Projects_view','post_content_partial_name'=>'');
         //var_dump($res);
-        $data=array_merge($header_data,$content_data,$load_partials);
+        $data=array_merge(array('links'=>$links),$header_data,$content_data,$load_partials);
         $this->load->view("layout/Layout_view",$data);
 
     }
@@ -114,7 +105,23 @@ class Article extends CI_Controller {
 
     }
 
-
+    public function get_pagination($cid,$method){
+        $segments=array('index.php/Article',$method,$cid);
+       $config['base_url']=base_url('index.php/Article/'.$method."/".$cid);
+       $config['total_rows']=50;
+       $config['last_link']=FALSE;
+        $config['first_link']=FALSE;
+       $config['full_tag_open']='<div class="bgrid pagination">';
+        $config['num_tag_open']='<div class="num">';
+        $config['cur_tag_open']='<div class="current">';
+        $config['full_tag_close']='</div>';
+        $config['num_tag_close']='</div>';
+        $config['cur_tag_close']='</div>';
+       $config['per_page']=$this->page_size;
+       $this->pagination->initialize($config);
+       $links=$this->pagination->create_links();
+        return $links;
+    }
 
 }
 

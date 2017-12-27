@@ -46,7 +46,7 @@
 
 
 
-
+            <?=$links?>
             </div> <!-- end member -->
 
 
