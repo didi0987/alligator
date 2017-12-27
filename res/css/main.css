@@ -2583,6 +2583,16 @@ footer .social-links li a:hover {
 footer .social-links li:first-child {
 	margin-left: 0;
 }
+footer .footer-links{
+	color:#887e7e;
+	width:100%;
+	padding: 20px 0px;
+}
+footer .footer-link{
+	float:left;
+	width: 25%;
+	text-align:  center;
+}
 #slide_left
 {color:#fff;font-family:Helvetica, sans-serif;margin-top: 50px;}
 #slide_left .title{

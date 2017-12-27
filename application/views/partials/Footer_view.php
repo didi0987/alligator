@@ -20,12 +20,25 @@
             <div class="info">
 
                 <div class="footer-logo"></div>
-
-                <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                    Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
-                    nibh id elit.
-                </p>
-
+                <div class="footer-links">
+                    <div class="footer-link">
+                        <a href=""> 用户协议</a>
+                    </div>
+                    <div class="footer-link">
+                        <a href="">政策隐私</a>
+                    </div>
+                    <div class="footer-link">
+                        <a href="">版权声明</a>
+                    </div>
+                    <div class="footer-link">
+                        <a href="">关于我们</a>
+                    </div>
+                    <div class="footer-link">
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <img src="<?=base_url()?>res/images/ghs.png" alt=""> ©2018  沪ICP备公安备案沪公网安备 ssssssssssssssss号
+                </div>
             </div>
 
         </div>
