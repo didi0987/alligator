@@ -1804,7 +1804,7 @@ width: 50%;
 	line-height: 1;
 	overflow: hidden;
 	background: #FFFFFF;
-	max-height:280px
+	height:220px;
 }
 
 #team-wrapper .member-pic img {

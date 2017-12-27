@@ -46,12 +46,12 @@
 
 
 
-            <?=$links?>
-            </div> <!-- end member -->
 
+            </div> <!-- end member -->
 
         </div> <!-- end team-wrapper -->
 
+    <?=$links?>
     </div> <!-- end row -->
 
 
