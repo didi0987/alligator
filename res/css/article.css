@@ -12,10 +12,7 @@
 #article .article_container{
     margin-top: 114px;
 }
-#article .article_author{
-
-    color:#ffd900;
-}
+#article .article_author{color: #b1b0ae;}
 blockquote
 {
     display: block;
