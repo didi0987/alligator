@@ -2623,12 +2623,12 @@ footer .footer-link{
 
 }
 .pagination{
-
-	letter-spacing:  20px;
-	text-align: center;
-	font-size: 18px;
-	margin-top: 20px;
-	border-bottom: none !important;
+letter-spacing:  20px;
+text-align: center;
+font-size: 18px;
+margin-top: 20px;
+border-bottom: none !important;
+width: 100%;
 }
 .pagination .num{
 	display:inline;
