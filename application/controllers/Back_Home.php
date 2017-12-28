@@ -56,9 +56,10 @@ class back_Home extends CI_Controller {
             echo "0000";
         }
     }
-    public function alist(){
+    public function alist($offset){
         $this->load->model('Article_model');
-        return $this->Article_model->list_Article_meta(0);
+        $pagesize=15;
+        return $this->Article_model->list_Article_meta($offset,$pagesize);
 
     }
 
@@ -108,7 +109,23 @@ class back_Home extends CI_Controller {
 
     }
     public function alist_panel(){
-        $data['metas']=$this->alist();
+        $this->load->library('pagination');
+        $offset=intval($this->uri->segment(3));
+        $config['base_url']=base_url('index.php/Back_Home/alist_panel');
+        $config['total_rows']=150;
+        $config['last_link']=FALSE;
+        $config['first_link']=FALSE;
+        $config['full_tag_open']='<div class="bgrid pagination">';
+        $config['num_tag_open']='<div class="num">';
+        $config['cur_tag_open']='<div class="current">';
+        $config['full_tag_close']='</div>';
+        $config['num_tag_close']='</div>';
+        $config['cur_tag_close']='</div>';
+        $config['per_page']=15;
+        $this->pagination->initialize($config);
+        $links=$this->pagination->create_links();
+        $data['metas']=$this->alist($offset);
+        $data['links']=$links;
         $this->load->view('back/back_Article_list_view',$data);
 
     }

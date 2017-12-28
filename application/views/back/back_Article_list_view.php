@@ -56,11 +56,11 @@
         </tr>
     <?php } ?>
 
-  
 </table>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script>
 
-  
+
+<?=$links?>
 </body>
 </html>
 <script>

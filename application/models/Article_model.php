@@ -50,9 +50,9 @@ class Article_model extends CI_Model
         return $this->db->insert('Article_content', $data);
     }
 
-    function list_Article_meta($pageNumber){
+    function list_Article_meta($offset,$pagesize){
 
-        $query="SELECT article_id,content_title,article_createDate,article_lastUpdateDate,article_display FROM Article_meta join Article_content where Article_meta.article_content_ref=Article_content.content_ref order by article_lastUpdateDate DESC,article_lastUpdateTime DESC";
+        $query="SELECT article_id,content_title,article_createDate,article_lastUpdateDate,article_display FROM Article_meta join Article_content where Article_meta.article_content_ref=Article_content.content_ref order by article_lastUpdateDate DESC,article_lastUpdateTime DESC LIMIT $offset,$pagesize";
         return $this->db->query($query)->result_array();
 
     }

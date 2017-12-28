@@ -93,3 +93,13 @@ h1 {
 h1 span {
   color: #167F92;
 }
+.pagination{
+
+  text-align:center;
+  width:100%;
+
+}
+.pagination .num,.current{
+  display:inline;
+  padding:5px 5px;
+}
