@@ -2628,19 +2628,18 @@ footer .footer-link{
 .pagination{text-align: center;font-size: 18px;margin-top: 20px;border-bottom: none !important;width: 100%;}
 .pagination .num{
 	display:inline;
-	padding:10px;
-	color:#fff;
+	color:#ef3c4a;
 	display: inline-block;
 	text-align:center;
-	/* padding-left: 20px; */
-	margin-right: 15px;
-padding: 6px 14px;
-border-radius: 35px;
-height: 35px;
-width: 35px;
+	margin: 0px 10px;
+	border-radius: 35px;
+	height: 35px;
+	width: 35px;
+	padding:5px;
+	background:#ded4d4;
 }
 .pagination .current{
-
+	color:#fff;
 	background:#ee3b4a;
 	
 }
