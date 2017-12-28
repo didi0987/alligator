@@ -2645,7 +2645,8 @@ footer .footer-link{
 	
 }
 .pagination .next{
-	width:135px;
+	width:85px;
+	text-align:center;
 }
 /* media queries - .social-links */
 
