@@ -2638,10 +2638,14 @@ footer .footer-link{
 	padding:5px;
 	background:#ded4d4;
 }
+
 .pagination .current{
 	color:#fff;
 	background:#ee3b4a;
 	
+}
+.pagination .next{
+	width:135px;
 }
 /* media queries - .social-links */
 
