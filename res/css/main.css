@@ -1623,6 +1623,9 @@ ul#nav li.current a:after {
 	border-bottom: 1px solid #cdd2da;
 	width: 100%;
 }
+.service-title{
+	padding:20px;
+}
 
 .service-list .bgrid {
 	-moz-transition: all 0.3s ease-in-out;
@@ -2623,12 +2626,18 @@ footer .footer-link{
 
 }
 .pagination{
-letter-spacing:  20px;
-text-align: center;
-font-size: 18px;
-margin-top: 20px;
-border-bottom: none !important;
-width: 100%;
+
+letter-spacing:  20px;
+
+text-align: center;
+
+font-size: 18px;
+
+margin-top: 20px;
+
+border-bottom: none !important;
+
+width: 100%;
 }
 .pagination .num{
 	display:inline;

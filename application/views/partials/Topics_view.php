@@ -31,7 +31,7 @@
                 echo  sprintf('<div class="bgrid">
                      <a href= "%s">
                     <div><img src="%s"></div>
-                    <h3>[%s] %s</h3>
+                    <div class="service-title"><h3>[%s] %s</h3></div> 
                     <div class="service-author">发表于: %s | %s</div>
                     <div class="service-content">
                         <p>
