@@ -122,7 +122,7 @@ class Article extends CI_Controller {
         $config['first_link']=FALSE;
         $config['full_tag_open']='<div class="bgrid pagination">';
         $config['num_tag_open']='<div class="num">';
-        $config['cur_tag_open']='<div class="current">';
+        $config['cur_tag_open']='<div class="num current">';
         $config['full_tag_close']='</div>';
         $config['num_tag_close']='</div>';
         $config['cur_tag_close']='</div>';

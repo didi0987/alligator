@@ -2625,19 +2625,10 @@ footer .footer-link{
 
 
 }
-.pagination{
-text-align: center;
-font-size: 18px;
-margin-top: 20px;
-border-bottom: none !important;
-width: 100%;
-}
+.pagination{text-align: center;font-size: 18px;margin-top: 20px;border-bottom: none !important;width: 100%;}
 .pagination .num{
 	display:inline;
-
-}
-.pagination .current{
-	background:#ee3b4a;
+	padding:10px;
 	color:#fff;
 	display: inline-block;
 	text-align:center;
@@ -2647,6 +2638,11 @@ padding: 6px 14px;
 border-radius: 35px;
 height: 35px;
 width: 35px;
+}
+.pagination .current{
+
+	background:#ee3b4a;
+	
 }
 /* media queries - .social-links */
 
