@@ -2,16 +2,19 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Article extends CI_Controller {
-    private $page_size=5;
+
     public function topics($cid){
         $cate_name="最新话题";
        $this->load->model('Article_model');
        $this->load->model('Category_model');
        $this->load->library('pagination');
       $offset=intval($this->uri->segment(4));
+      $page_size=8;
+      $res=$this->Article_model->get_Topics_by_Cate($cid,$offset,$page_size);
+      //$total_size=sizeof($res);
+        $total_size=50;
+       $links=$this->get_pagination($cid,'topics',$total_size,$page_size);
 
-       $res=$this->Article_model->get_Topics_by_Cate($cid,$offset,$this->page_size);
-       $links=$this->get_pagination($cid,'topics');
         //0 is all topics
        if(!$cid=='0'){
            $cate=$this->Category_model->get_Cate_by_id($cid);
@@ -35,8 +38,12 @@ class Article extends CI_Controller {
         $this->load->library('pagination');
         $offset=intval($this->uri->segment(4));
 
-        $links=$this->get_pagination($cid,'projects');
-        $res=$this->Article_model->get_Projects_by_Cate($cid,$offset,$this->page_size);
+        $page_size=12;
+        $res=$this->Article_model->get_Projects_by_Cate($cid,$offset,$page_size);
+
+      //  $total_size=sizeof($res);
+        $total_size=50;
+        $links=$this->get_pagination($cid,'projects',$total_size,$page_size);
         if(!$cid=='0'){
             $cate=$this->Category_model->get_Cate_by_id($cid);
             $cate_name=$cate[0]['category_name'];
@@ -105,19 +112,20 @@ class Article extends CI_Controller {
 
     }
 
-    public function get_pagination($cid,$method){
-        $segments=array('index.php/Article',$method,$cid);
-       $config['base_url']=base_url('index.php/Article/'.$method."/".$cid);
-       $config['total_rows']=50;
-       $config['last_link']=FALSE;
+    public function get_pagination($cid,$method,$total_size,$page_size){
+
+        $config['base_url']=base_url('index.php/Article/'.$method."/".$cid);
+        $config['total_rows']=$total_size;
+        $config['per_page']=$page_size;
+        $config['last_link']=FALSE;
         $config['first_link']=FALSE;
-       $config['full_tag_open']='<div class="bgrid pagination">';
+        $config['full_tag_open']='<div class="bgrid pagination">';
         $config['num_tag_open']='<div class="num">';
         $config['cur_tag_open']='<div class="current">';
         $config['full_tag_close']='</div>';
         $config['num_tag_close']='</div>';
         $config['cur_tag_close']='</div>';
-       $config['per_page']=$this->page_size;
+
        $this->pagination->initialize($config);
        $links=$this->pagination->create_links();
         return $links;

@@ -108,6 +108,7 @@ class Article_model extends CI_Model
         return $this->db->query($query,array($cid))->result_array();
     }
 
+
 }
 
 ?>

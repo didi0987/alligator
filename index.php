@@ -77,7 +77,7 @@ switch (ENVIRONMENT)
 		if (version_compare(PHP_VERSION, '5.3', '>='))
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
-        //    error_reporting(0);
+         //   error_reporting(0);
 		}
 		else
 		{
