@@ -125,11 +125,13 @@ class Article extends CI_Controller {
         $config['cur_tag_open']='<div class="num current">';
         $config['next_tag_open']='<div class="num next">';
         $config['next_link'] = '下一页';
+        $config['prev_tag_open']='<div class="num next">';
+        $config['prev_link'] = '上一页';
         $config['full_tag_close']='</div>';
         $config['num_tag_close']='</div>';
         $config['cur_tag_close']='</div>';
         $config['next_tag_close']='</div>';
-
+        $config['prev_tag_close']='</div>';
        $this->pagination->initialize($config);
        $links=$this->pagination->create_links();
         return $links;
