@@ -115,6 +115,7 @@ class Article extends CI_Controller {
     public function get_pagination($cid,$method,$total_size,$page_size){
 
         $config['base_url']=base_url('index.php/Article/'.$method."/".$cid);
+        $config['uri_segment'] = 4;
         $config['total_rows']=$total_size;
         $config['per_page']=$page_size;
         $config['last_link']=FALSE;
