@@ -36,7 +36,7 @@
                
                     </div>
                   <div class="member-name">
-                    <h3>[%s] %s</h3>
+                    <h5>[%s] %s</h5>
                 </div>
                 </a>
             </div>',$href,$src,$value['category_name'],$value['content_title']);
