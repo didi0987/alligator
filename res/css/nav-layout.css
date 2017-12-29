@@ -57,7 +57,7 @@ header h1:before,
 
 body {
     padding-top: 4.4rem;
-    font-family:Arial, "Hiragino Sans GB", 冬青黑, "Microsoft YaHei", 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, "Arial sans-serif";
+    font-family:Arial, "Hiragino Sans GB", 冬青黑, "Microsoft YaHei", 微8软雅黑, SimSun, 宋体, Helvetica, Tahoma, "Arial sans-serif";
 }
 
 header {
@@ -135,6 +135,7 @@ header h1:before {
     padding-top: 4.4rem;
     line-height: 4.4rem;
     color: #000;
+    border-bottom: 5px solid #ee3b4a;
 }
 
 .nav ul {
@@ -160,7 +161,6 @@ header h1:before {
 }
 
 .nav li {
-    border-bottom: 1px solid #ded5cc;
     cursor: pointer;
     background:#fff;
     padding-left: 0px;
