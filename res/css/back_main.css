@@ -129,7 +129,7 @@ select::-ms-expand {
     display: none;
 }
 .preview #preview_wrap{
-    width: 79%;
+    width: 96%;
     margin:20px auto 150px auto;
     background-color: white;
     padding: 15px 10px;

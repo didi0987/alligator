@@ -19,6 +19,7 @@
 
             <?php
             //var_dump($content);
+
             foreach ($related as $key=>$value){
                 //related excludes self
                 if($value['article_id']!=$article[0]['article_id'])
