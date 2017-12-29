@@ -1673,13 +1673,12 @@ width: 50%;
 #services .service-list h3 {
 	font-size: 22px;
 	font-weight:bold;
-	font-family: "Microsoft YaHei";
+
 	color: #000000;
 	padding: 0;
 	text-transform: none;
 	text-align: left;
 	margin-bottom: 6px;
-
 }
 
 /* media queries:
