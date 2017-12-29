@@ -11,7 +11,7 @@
 <body>
 <div id="container">
   <div id="header">
-      <a href="<?=base_url()?>index.php/back_Article" style="color:#a7a9aa;"><h1>Hello World 后台</h1></a>
+      <a href="<?=base_url()?>index.php/Back_Home" style="color:#a7a9aa;"><h1>Hello World 后台</h1></a>
   </div>
   <div id="wrapper">
     <div id="content">
