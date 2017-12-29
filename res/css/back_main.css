@@ -17,7 +17,7 @@ input {
     padding:10px;
   
 }
-input select {
+input,select {
 
     font-family: "Microsoft YaHei","微软雅黑";
 }
