@@ -245,7 +245,7 @@ header h1:before {
     }
 
     .nav > ul > li {
-        border-top: none;
+        border: none;
         padding: 0px 10px 0px 10px;
         margin: 0px 25px;
     }
@@ -274,7 +274,7 @@ header h1:before {
 
     .nav .nav-submenu li {
         float:left;
-        border:none;
+        border-bottom:none;
         /* width: 100%; */
     }
 
