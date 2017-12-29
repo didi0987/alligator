@@ -68,6 +68,7 @@ class Article extends CI_Controller {
         if($article[0]['article_category_l1']=='2'){
             $l3=$article[0]['article_category_l3'];
             $related=$this->find_related_projects($l3);
+            var_dump($related);
             $post_content_partial_name='Project_postconent_view';
 
         }
