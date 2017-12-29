@@ -17,6 +17,10 @@ input {
     padding:10px;
   
 }
+input select {
+
+    font-family: "Microsoft YaHei","微软雅黑";
+}
 
 button{
      height: 45px;
