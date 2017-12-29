@@ -76,7 +76,7 @@ header {
 header .logo{
     max-height: 30px;
     margin-top: 17px;
-    
+
 }
 
 header h1 {
@@ -139,7 +139,7 @@ header h1:before {
     padding-top: 4.4rem;
     line-height: 4.4rem;
     color: #000;
-    border-bottom: 5px solid #ee3b4a;
+   
 }
 
 .nav ul {
@@ -168,6 +168,9 @@ header h1:before {
     cursor: pointer;
     background:#fff;
     padding-left: 0px;
+    border-bottom:1px solid #e6e3e4;
+   
+    padding-top:5px
 }
 
 .nav li:hover > a,
@@ -238,6 +241,7 @@ header h1:before {
        width: 100%;
        display:block;
        height: 150px;
+        border-bottom: 5px solid #ec727c;
     }
 
     .nav > ul > li {
