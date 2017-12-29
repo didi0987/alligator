@@ -115,7 +115,7 @@ select::-ms-expand {
     overflow: -moz-scrollbars-none;  // Firefox
     /* padding: 15px; */
 }
-#editor_input{height: 800px;/* height: 100%; */width: 82%;padding: 10px 0px;/* overflow-y: scroll; */}
+#editor_input{height: 800px;/* height: 100%; */width: 100%;padding: 10px 0px;/* overflow-y: scroll; */}
 .preview{
     position: fixed;
     left:0;
