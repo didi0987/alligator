@@ -1869,7 +1869,7 @@ width: 50%;
 }
 #post_content_section .member-pic{
 	
-	height:120px;
+	height:180px;
 
 }
 
@@ -2134,11 +2134,7 @@ width: 50%;
 
 /* media queries:
 /* #testimonials / #testimonial-slider */
-#article{
-width:100%;
-background-color: white;
-padding-bottom: 150px;
-}
+#article{width:100%;background-color: white;}
 #article .section-head:first-child {
     padding: 37px 0px;
 	}
