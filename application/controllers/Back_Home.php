@@ -121,7 +121,7 @@ class back_Home extends CI_Controller {
         $config['full_tag_close']='</div>';
         $config['num_tag_close']='</div>';
         $config['cur_tag_close']='</div>';
-        $config['per_page']=15;
+        $config['per_page']=10;
         $this->pagination->initialize($config);
         $links=$this->pagination->create_links();
         $data['metas']=$this->alist($offset);

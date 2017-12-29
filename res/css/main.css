@@ -1672,7 +1672,9 @@ width: 50%;
 }
 
 #services .service-list h3 {
-	font: 22px/36px "raleway-heavy", sans-serif,"Microsoft Yahei";
+	font-size: 22px;
+	font-weight:bold;
+	font-family: "Microsoft YaHei";
 	color: #000000;
 	padding: 0;
 	text-transform: none;
@@ -1731,7 +1733,8 @@ width: 50%;
 }
 
 #about h3 {
-	font: 18px/36px "raleway-heavy", sans-serif,"Microsoft Yahei";
+	font-size:18px;
+	font-weight:bold;
 	color: #000;
 	text-transform: none;
 	letter-spacing: 0;
