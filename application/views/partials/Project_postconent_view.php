@@ -1,13 +1,13 @@
 <section id="about">
-<!--
+
 
     <div class="row section-head">
 
         <div class="twelve columns">
 
-            <h1></h1>
+            <h1>相关项目</h1>
 
-            <hr />
+
 
         </div>
 
