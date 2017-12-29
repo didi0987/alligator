@@ -33,7 +33,7 @@
                      <a href= "%s">
                     <div class="member-pic">
                     <img src="%s" alt=""/>
-                     <div class="mask"></div>
+               
                     </div>
                   <div class="member-name">
                     <h3>[%s] %s</h3>

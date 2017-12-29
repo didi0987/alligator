@@ -1739,6 +1739,9 @@ width: 50%;
 	padding: 0;
 	margin-bottom: 6px;
 }
+#post_content_section .member-name{
+	
+}
 @media only screen and (max-width:1024px) {
 #about .member-name{
 		padding: 5px;
