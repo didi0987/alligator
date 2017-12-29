@@ -19,7 +19,7 @@ input {
 }
 input,select {
 
-    font-family: "Microsoft YaHei","微软雅黑";
+    font-family: "Microsoft YaHei","微软雅黑",Arial;
 }
 
 button{
