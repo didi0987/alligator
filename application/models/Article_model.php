@@ -56,16 +56,6 @@ class Article_model extends CI_Model
         return $this->db->query($query)->result_array();
 
     }
-
-    function get_Article_Meta_Content_by_id($article_id){
-
-        $query="SELECT * FROM Article_meta a,Article_content,Article_to_Category c where a.article_content_ref=Article_content.content_ref AND a.article_id=c.article_id AND a.article_id=".$article_id;
-        $res=$this->db->query($query)->result_array();
-        if(!$res){
-            show_404();
-        }
-        return $res;
-    }
     function update_Article_Meta_by_id($article_id,$lastUpdateDate,$lastUpdateTime,$article_length){
 
         $query = "Update Article_meta Set article_lastUpdateDate=?, article_lastUpdateTime=?,article_length=? where article_id=?";
@@ -83,6 +73,15 @@ class Article_model extends CI_Model
         $query="Select article_display from  Article_meta where article_id=?";
         return $this->db->query($query,array($article_id))->result_array();
 
+    }
+    function get_Article_Meta_Content_by_id($article_id){
+
+        $query="SELECT * FROM Article_meta a,Article_content,Article_to_Category c where a.article_content_ref=Article_content.content_ref AND a.article_id=c.article_id AND a.article_id=".$article_id;
+        $res=$this->db->query($query)->result_array();
+        if(!$res){
+            show_404();
+        }
+        return $res;
     }
     function get_Topics_by_Cate($cid,$offset,$pagesize){
         if($cid=='0')//全部
@@ -103,7 +102,7 @@ class Article_model extends CI_Model
             $query="Select a.article_id,b.content_title,c.category_name,b.content_html from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l3=c.category_id AND a.article_display=1 group by a.article_id ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC LIMIT $offset,$pagesize";
         }
         else{
-            $query="Select a.article_id,b.content_title,c.category_name,b.content_html from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l3=c.category_id AND d.article_category_l3=? AND a.article_display=1 ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC LIMIT $offset,$pagesize";
+            $query="Select a.article_id,b.content_title,c.category_name,b.content_html from Article_meta a,Article_Content b,Article_Category c,Article_to_Category d where a.article_content_ref=b.content_ref AND d.article_id=a.article_id AND d.article_category_l3=c.category_id AND d.article_category_l3=? AND a.article_display=1 group by a.article_id ORDER BY a.article_lastUpdateDate DESC,a.article_lastUpdateTime DESC LIMIT $offset,$pagesize";
         }
         return $this->db->query($query,array($cid))->result_array();
     }

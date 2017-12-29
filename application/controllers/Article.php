@@ -62,9 +62,18 @@ class Article extends CI_Controller {
         $this->load->model('Article_model');
         $article=$this->Article_model->get_Article_Meta_Content_by_id($aid);
         $header_data=$this->load_Header_data();
-        $content_data=array('article'=>$article);
+        $related=array();
+        $post_content_partial_name='';
+        //if 项目, display related 项目 following the content
+        if($article[0]['article_category_l1']=='2'){
+            $l3=$article[0]['article_category_l3'];
+            $related=$this->find_related_projects($l3);
+            $post_content_partial_name='Project_postconent_view';
+
+        }
+        $content_data=array('article'=>$article,'related'=>$related);
         //load_partials pass the partials name to layout in /partials, so that the layout can render
-        $load_partials=array('pre_content_partial_name'=>'Project_precontent_View','content_partial_name'=>'Article_view','post_content_partial_name'=>'');
+        $load_partials=array('pre_content_partial_name'=>'Project_precontent_View','content_partial_name'=>'Article_view','post_content_partial_name'=>$post_content_partial_name);
         //var_dump($res);
         $data=array_merge($header_data,$content_data,$load_partials);
         $this->load->view("layout/Layout_view",$data);
@@ -96,6 +105,7 @@ class Article extends CI_Controller {
         return $cates;
 
     }
+    /*
     public  function get_Article_by_id($article_id)
     {
         $data=array('article'=>"文章加载错误!");
@@ -110,7 +120,7 @@ class Article extends CI_Controller {
         //subview data only need to be passed to layout and the subview is able to get. Does not require second pass to the subview
         $this->load->view('layout/Layout_view',$data);
 
-    }
+    }*/
 
     public function get_pagination($cid,$method,$total_size,$page_size){
 
@@ -135,6 +145,11 @@ class Article extends CI_Controller {
        $this->pagination->initialize($config);
        $links=$this->pagination->create_links();
         return $links;
+    }
+    /*this is a temporary implementation, return the newest 4 projects with the same l3 category */
+    public function find_related_projects($cid){
+        $this->load->model('Article_model');
+        return $this->Article_model->get_Projects_by_Cate($cid,0,4);
     }
 
 }
