@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="footer-links">
-                    <img src="<?=base_url()?>res/images/ghs.png" alt=""> ©2018  沪ICP备公安备案沪公网安备
+                    <img src="<?=base_url()?>res/images/ghs.png" alt=""> ©2018  沪ICP备18001253号-1
                 </div>
             </div>
 
