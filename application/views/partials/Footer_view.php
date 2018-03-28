@@ -31,7 +31,7 @@
                         <a href="">版权声明</a>
                     </div>
                     <div class="footer-link">
-                        <a href="">关于我们</a>
+                        <a href="<?=base_url?>/index.php/article/article_detail/14">公司介绍</a>
                     </div>
                     <div class="footer-link">
                     </div>
